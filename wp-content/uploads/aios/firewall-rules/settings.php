@@ -1,0 +1,6 @@
+<?php __halt_compiler();
+/**
+ * This file was created by All In One Security (AIOS) plugin.
+ * The file is required for storing and retrieving your firewall's settings.
+ */
+{"aiowps_enable_pingback_firewall":false,"aiowps_forbid_proxy_comments":false,"aiowps_deny_bad_query_strings":false,"aiowps_advanced_char_string_filter":false,"aios_enable_rename_login_page":"","aios_login_page_slug":"","aios_enable_brute_force_attack_prevention":"","aios_brute_force_secret_word":"","aios_cookie_based_brute_force_redirect_url":"http:\/\/127.0.0.1","aios_brute_force_attack_prevention_pw_protected_exception":"","aios_brute_force_attack_prevention_ajax_exception":"","aios_brute_force_secret_cookie_name":"aios_brute_force_secret_a7c29aba5c3be0ff0bb09fabcfd42da1","aios_brute_force_cookie_salt":"!E)&L0k@Rgpk[sDb6b{^ y4.1@~E_E|UBLbU#f1`vHn@Tex+`]Cw;B?^\/}2IJlrX`8G(?J]{!e 5*r-7p}=&<;5-hMMF5n`MqgDGqb]9!?Ov7OCQ>L?3Oj^6@7y2G<e}","aiowps_blacklist_user_agents":[],"aios_ip_retrieve_method":"","aiowps_ip_retrieve_method":"","aiowps_blacklist_ips":[],"aiowps_6g_block_request_methods":[],"aiowps_6g_block_query":false,"aiowps_6g_block_request":false,"aiowps_6g_block_referrers":false,"aiowps_6g_block_agents":false}
