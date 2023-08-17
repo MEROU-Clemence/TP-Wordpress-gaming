@@ -17,22 +17,45 @@
     <!-- Partie réservée au header -->
     <header class="header-general">
         <div class="en-tete-line">
-            <div>
-                <span><i class="bi bi-geo-alt custom-icon">Trouver Magasin</i></span>
-                <span><i class="bi bi-envelope custom-icon">mon-compte@gmail.com</i></span>
+            <div class="en-tete-links">
+                <i class="bi bi-geo-alt custom-icon"><a href="#">Trouver magasin</a></i>
+                <i class="bi bi-envelope custom-icon"><a href="#">mon-compte@gmail.com</a></i>
             </div>
             <div class="en-tete-links">
-                <span>Promotions du moment</span>
+                <a href="#">Promotions du moment</a>
                 <div class="vertical-bar"></div>
-                <span>Services customisation</span>
+                <a href="#">Services customisation</a>
                 <div class="vertical-bar"></div>
-                <span>Cadeaux</span>
+                <a href="#">Cadeaux</a>
             </div>
         </div>
-        <a href="<?php echo home_url(); ?>">
-            <img class="logo-gaming-palace" src="<?php echo get_template_directory_uri(); ?>/uploads/2023/08/Logo-de-mon-site.png" alt="Logo de mon site">
-        </a>
+        <div class="logo-search-user">
+            <a href="<?php echo home_url(); ?>">
+                <img class="logo-gaming-palace" src="<?php echo get_template_directory_uri(); ?>/uploads/2023/08/Logo-de-mon-site.png" alt="Logo de mon site">
+            </a>
+            <div class="search-bar">
+                <div class="search-content">
+                    <form action="/rechercher" method="get">
+                        <select id="categorie" name="categorie" onchange="redirectOnChange(this)">
+                            <option value="toutes">Toutes catégories: &#9660;</option>
+                            <option value="pc" data-link="http://tp-wp-clemence.lndo.site/product-category/pc-et-kit-pc/">PC et Kit-PC</option>
+                            <option value="tel" data-link="http://tp-wp-clemence.lndo.site/product-category/portables-et-tablettes/">Portables et tablettes</option>
+                            <option value="pieces" data-link="http://tp-wp-clemence.lndo.site/product-category/pieces-detaches/">Pièces détachées</option>
+                            <option value="accessoires" data-link="http://tp-wp-clemence.lndo.site/product-category/accessoires/">Accessoires</option>
+                            <option value="figurines" data-link="http://tp-wp-clemence.lndo.site/product-category/figurines/">Figurines</option>
+                            <option value="matériel" data-link="http://tp-wp-clemence.lndo.site/product-category/materiel-jeux/">Matériel jeux</option>
+                            <option value="audio" data-link="http://tp-wp-clemence.lndo.site/product-category/casques-audio/">Casques audio</option>
+                            <option value="vr" data-link="http://tp-wp-clemence.lndo.site/product-category/casques-vr/">Casques VR</option>
+                        </select>
+                        <input type="text" name="q" placeholder="Recherches produits...">
+                        <button type="submit">RECHERCHE</button>
+                    </form>
+                </div>
+            </div>
 
+
+
+        </div>
         <em><?php echo get_bloginfo('description'); ?></em>
 
         <!-- on affiche le menu -->

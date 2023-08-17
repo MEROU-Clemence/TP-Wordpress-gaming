@@ -9,11 +9,10 @@ Tags: bootstrap, responsive, html5, css3, jquery, php, wordpress (des mots clefs
 
 a {
     text-decoration: none;
-    color: #1e422d;
 }
 
 a:hover {
-    color: #eeecec;
+    color:#9C6326;
 }
 
 img {
@@ -39,6 +38,12 @@ figure>img {
 }
 
 /* STYLE POUR LE MENU AVEC SOUS-CATEGORIES */
+
+.header-general{
+    background-color: #2F2F2F !important;
+    color: #B9B9B9;
+}
+
 /* ligne d'en-tête */
 .en-tete-line{
     display: flex;
@@ -47,8 +52,13 @@ figure>img {
     justify-content: space-between;
 }
 
-.en-tete-line span {
-    padding: 0 5px 0 5px;
+.en-tete-line a {
+    color: #B9B9B9;
+    padding: 0 8px 0 8px;
+}
+
+.en-tete-line a:hover{
+    color: #9C6326;
 }
 
 .custom-icon{
@@ -70,16 +80,58 @@ figure>img {
 
 
 /* suite du header */
+.logo-search-user{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
 
 .logo-gaming-palace{
     width: 100px!important;
     height: auto !important;
+    object-fit: contain;
 }
 
-.header-general{
-    background-color: #2F2F2F !important;
-    color: #B9B9B9;
+.search-bar {
+    align-items: center; 
+    display: flex;
+    justify-content: center;
+    position: relative;
 }
+
+.search-content {
+    background-color: #FEFEFE;
+    border-radius: 5px;
+    text-align: center;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+#categorie {
+    appearance: none;
+    border: none;
+    padding: 8px;
+}
+
+.search-bar input{
+    padding: 10px;
+}
+
+.search-bar button{
+    background-color: #F73312;
+    border-radius: 5px;
+    color: #FEFEFE;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 12px;
+}
+
+.search-bar button:hover{
+    background-color:#B9B9B9;
+    color: #F73312;
+}
+
+
 
 
 
