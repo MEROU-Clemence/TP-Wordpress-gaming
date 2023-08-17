@@ -39,11 +39,49 @@ figure>img {
 }
 
 /* STYLE POUR LE MENU AVEC SOUS-CATEGORIES */
-/* Logo site */
-.logogamingpalace{
+/* ligne d'en-tête */
+.en-tete-line{
+    display: flex;
+    flex-direction: row;
+    font-size: 9px;
+    justify-content: space-between;
+}
+
+.en-tete-line span {
+    padding: 0 5px 0 5px;
+}
+
+.custom-icon{
+    color: #B9B9B9;
+    font-style: normal;
+}
+
+.en-tete-links{
+    display: flex;
+    flex-direction: row;
+}
+
+.vertical-bar {
+    background-color: #9C6326;
+    margin-top: 3px;
+    height: 8px;
+    width: 2px;
+}
+
+
+/* suite du header */
+
+.logo-gaming-palace{
     width: 100px!important;
     height: auto !important;
 }
+
+.header-general{
+    background-color: #2F2F2F !important;
+    color: #B9B9B9;
+}
+
+
 
 ul.custom-menu {
     display: flex;
@@ -63,7 +101,7 @@ ul.custom-menu li:last-child {
 
 ul.custom-menu li a {
     padding: 10px;
-    color: #e6c718;
+    color: #B9B9B9;
     text-decoration: none;
     display: block;
 }

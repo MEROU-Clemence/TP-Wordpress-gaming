@@ -1,0 +1,2 @@
+2023-08-17T12:10:42+00:00 CRITICAL syntax error, unexpected '"/img/Logo-et-nom-du-site.png"' (T_CONSTANT_ENCAPSED_STRING), expecting ';' or ',' in /app/wp-content/themes/themetpclemence/header.php on line 19
+
