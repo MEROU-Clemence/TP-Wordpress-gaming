@@ -12,16 +12,12 @@ Tags: bootstrap, responsive, html5, css3, jquery, php, wordpress (des mots clefs
 }
 
 a {
+    color: #B9B9B9;
     text-decoration: none;
 }
 
 a:hover {
     color:#9C6326;
-}
-
-.line-separate {
-    border: 1px solid;
-    border-color: #2F2F2F;
 }
 
 img {
@@ -31,8 +27,6 @@ img {
 }
 
 
-
-
 /* STYLE POUR LE MENU AVEC SOUS-CATEGORIES */
 
 .header-general{
@@ -40,48 +34,38 @@ img {
     border-bottom: #2F2F2F;
     border: 1px solid;
     color: #B9B9B9;
+    margin: 0;
 }
 
 /* ligne d'en-tête */
 .en-tete-line{
-    display: flex;
-    flex-direction: row;
-    font-size: 9px;
-    justify-content: space-between;
-}
-
-.en-tete-line a {
-    color: #B9B9B9;
-    padding: 0 8px 0 8px;
-}
-
-.en-tete-line a:hover{
-    color: #9C6326;
+    border-bottom: 1px solid #2F2F2F;
+    font-size: 10px;
+    margin: 5px;
 }
 
 .custom-icon{
     color: #B9B9B9;
     font-style: normal;
+    padding-right: 4px;
 }
 
-.en-tete-links{
-    display: flex;
-    flex-direction: row;
+.custom-icon a{
+    padding: 0 4px 0 4px;
 }
 
 .vertical-bar {
-    color: #9C6326;
-    margin-top: 3px;
-    height: 8px;
+    background-color: #9C6326;
+    height: 10px;
     width: 2px;
 }
 
 
 /* suite du header */
-.logo-search-user{
+.logo-search-user {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    align-items: center;
+    margin: 5px;
 }
 
 .logo-gaming-palace{
@@ -90,18 +74,11 @@ img {
     object-fit: contain;
 }
 
-.search-bar {
-    align-items: center; 
-    display: flex;
-    justify-content: center;
-    position: relative;
-}
-
 .search-content {
     background-color: #FEFEFE;
     border-radius: 5px;
-    text-align: center;
-    display: inline-block;
+    align-items: center;
+    display: flex;
 }
 
 #categorie {
@@ -128,22 +105,64 @@ img {
     color: #F73312;
 }
 
-.compte {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+.connexion{
+    font-size: 14px;
+}
+
+.barre{
+    padding: 0 3px 0 3px;
 }
 
 .connexion a {
     color:#FEFEFE;
 }
 
-.picto {
+.connexion a:hover{
+    color: #9C6326;
+}
+
+.picto i {
     background-color: #F73312;
     border-radius: 25px;
-    color: #B9B9B9;
-    padding: 5px;
+    color:#FEFEFE;
+    margin: 5px;
+    padding: 10px 13px 10px 13px;
 }
+
+.picto i:hover {
+    background-color: #eeecec;
+    color: #F73312;
+}
+
+.menu-pages {
+    justify-content: space-between;
+}
+
+.hamburger{
+    align-items: center;
+    background-color: #F73312;
+    border-radius: 5px 0 0 5px;
+    color: #FEFEFE;
+    margin: 0;
+    padding: 5px;
+    text-align: center;
+}
+
+#categorie-deux{
+    appearance: none;
+    background-color: #F73312;
+    border-radius: 0 5px 5px 0;
+    border: none;
+    color: #FEFEFE; 
+    padding: 8px;
+}
+
+.fr{
+    color: #FEFEFE;
+    font-size: 12px;
+}
+
+
 
 ul.custom-menu {
     display: flex;

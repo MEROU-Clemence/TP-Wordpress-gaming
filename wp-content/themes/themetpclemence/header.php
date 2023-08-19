@@ -17,85 +17,116 @@
     <!-- Partie réservée au header -->
     <header>
         <div class="header-general">
-            <div class="en-tete-line">
-                <div class="en-tete-links">
-                    <i class="bi bi-geo-alt custom-icon p-1"><a href="#">Trouver magasin</a></i>
-                    <i class="bi bi-envelope custom-icon p-1"><a href="#">mon-compte@gmail.com</a></i>
+            <div class="en-tete-line p-1 justify-content-around row">
+                <div class="en-tete-links col-md-5">
+                    <i class="bi bi-geo-alt pr-1 custom-icon"><a href="#">Trouver magasin</a></i>
+                    <i class="bi bi-envelope pr-1 custom-icon"><a href="#">mon-compte@gmail.com</a></i>
                 </div>
-                <div class="en-tete-links p-1">
-                    <a href="#">Promotions du moment</a>
+                <div class="en-tete-links col-md-5 d-flex justify-content-end align-items-center">
+                    <a class="p-1" href="#">Promotions du moment</a>
                     <div class="vertical-bar"></div>
-                    <a href="#">Services customisation</a>
+                    <a class="p-1" href="#">Services customisation</a>
                     <div class="vertical-bar"></div>
-                    <a href="#">Cadeaux</a>
-                </div>
-                <hr class="line-separate">
+                    <a class="p-1" href="#">Cadeaux</a>
+                </div>   
             </div>
-            <div class="logo-search-user">
-                <a href="<?php echo home_url(); ?>">
-                    <img class="logo-gaming-palace" src="<?php echo get_template_directory_uri(); ?>/uploads/2023/08/Logo-de-mon-site.png" alt="Logo de mon site">
-                </a>
-                <div class="search-bar">
-                    <div class="search-content">
-                        <form action="/rechercher" method="get">
-                            <select id="categorie" name="categorie" onchange="redirectOnChange(this)">
-                                <option value="toutes">Toutes catégories: &#9660;</option>
-                                <option value="pc" data-link="http://tp-wp-clemence.lndo.site/product-category/pc-et-kit-pc/">PC et Kit-PC</option>
-                                <option value="tel" data-link="http://tp-wp-clemence.lndo.site/product-category/portables-et-tablettes/">Portables et tablettes</option>
-                                <option value="pieces" data-link="http://tp-wp-clemence.lndo.site/product-category/pieces-detaches/">Pièces détachées</option>
-                                <option value="accessoires" data-link="http://tp-wp-clemence.lndo.site/product-category/accessoires/">Accessoires</option>
-                                <option value="figurines" data-link="http://tp-wp-clemence.lndo.site/product-category/figurines/">Figurines</option>
-                                <option value="matériel" data-link="http://tp-wp-clemence.lndo.site/product-category/materiel-jeux/">Matériel jeux</option>
-                                <option value="audio" data-link="http://tp-wp-clemence.lndo.site/product-category/casques-audio/">Casques audio</option>
-                                <option value="vr" data-link="http://tp-wp-clemence.lndo.site/product-category/casques-vr/">Casques VR</option>
-                            </select>
-                            <input type="text" name="q" placeholder="Recherches produits...">
-                            <button type="submit">RECHERCHE</button>
-                        </form>
+            <div class="logo-search-user justify-content-around">
+                <div class="row align-items-center">
+                    <div class="col-md-2">
+                        <a href="<?php echo home_url(); ?>">
+                            <img class="logo-gaming-palace" src="<?php echo get_template_directory_uri(); ?>/uploads/2023/08/Logo-de-mon-site.png" alt="Logo de mon site">
+                        </a>
                     </div>
-                </div>
-                <div class="compte">
-                    <div class="connexion">
-                        <span>Mon compte</span>
-                        <div>
-                            <a href="#">Connection</a>
-                            <span>/</span>
-                            <a href="#">Déconnection</a>
+                    <div class="col-md-5">
+                        <div class="d-flex search-bar custom-center align-items-center justify-content-center">
+                            <div class="d-flex search-content">
+                                <form action="/rechercher" method="get">
+                                    <div class=d-flex>
+                                        <select id="categorie" name="categorie" onchange="redirectOnChange(this)">
+                                            <option value="toutes">Toutes catégories: &#9660;</option>
+                                            <option value="pc" data-link="http://tp-wp-clemence.lndo.site/product-category/pc-et-kit-pc/">PC et Kit-PC</option>
+                                            <option value="tel" data-link="http://tp-wp-clemence.lndo.site/product-category/portables-et-tablettes/">Portables et tablettes</option>
+                                            <option value="pieces" data-link="http://tp-wp-clemence.lndo.site/product-category/pieces-detaches/">Pièces détachées</option>
+                                            <option value="accessoires" data-link="http://tp-wp-clemence.lndo.site/product-category/accessoires/">Accessoires</option>
+                                            <option value="figurines" data-link="http://tp-wp-clemence.lndo.site/product-category/figurines/">Figurines</option>
+                                            <option value="matériel" data-link="http://tp-wp-clemence.lndo.site/product-category/materiel-jeux/">Matériel jeux</option>
+                                            <option value="audio" data-link="http://tp-wp-clemence.lndo.site/product-category/casques-audio/">Casques audio</option>
+                                            <option value="vr" data-link="http://tp-wp-clemence.lndo.site/product-category/casques-vr/">Casques VR</option>
+                                        </select>
+                                        <input type="text" name="q" placeholder="Recherches produits...">
+                                        <div>
+                                            <button type="submit">RECHERCHE</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
-                    <div class="picto">
-                        <i class="bi bi-arrow-left-right"></i>
-                        <i class="bi bi-heart"></i>
-                        <i class="bi bi-cart"></i>
+                    <div class="col-md-5 compte d-flex align-items-center justify-content-end">
+                        <div class="d-flex align-items-center">
+                            <div class="connexion">
+                                <span>Mon compte</span>
+                                <div class="d-flex">
+                                    <a href="#">Connection</a>
+                                    <span class="barre">/</span>
+                                    <a href="#">Déconnection</a>
+                                </div>
+                            </div>
+                            <div class="d-flex picto">
+                                <i class="bi bi-arrow-left-right"></i>
+                                <i class="bi bi-heart"></i>
+                                <i class="bi bi-cart"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>    
+            </div>
+            <div class="menu-pages d-flex justify-content-around">
+                <div class="d-flex justify-content-around">
+                    <div class="col-md-2 search-content-onglet">
+                        <form action="/rechercher" method="get">
+                            <div class="d-flex">
+                                <i class="bi bi-list hamburger"></i>
+                                <select id="categorie-deux" name="categorie" onchange="redirectOnChange(this)">
+                                    <option value="toutes">Toutes catégories &nbsp; &#9660;</option>
+                                    <option value="accueil" data-link="http://tp-wp-clemence.lndo.site">Accueil</option>
+                                    <option value="compétition" data-link="http://tp-wp-clemence.lndo.site/competition/">Compétitions</option>
+                                    <option value="catalogue" data-link="http://tp-wp-clemence.lndo.site/catalogue/">Catalogue</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-5">
+                        <em><?php echo get_bloginfo('description'); ?></em>
+                    
+                
+
+                <!-- on affiche le menu -->
+                <?php
+                // appel du menu simple
+                // wp_nav_menu(array(
+                //     "theme_location" => "menu-sup", // on indique le menu à afficher
+                //     "container" => "nav", // on indique que le menu sera dans une balise nav
+                //     "container_class" => "navbar navbar-expand-sm navbar-light", // on ajoute des class bootstrap
+                //     "menu_class" => "navbar-nav me-auto p-1", // on ajoute des class bootstrap
+                //     "menu_id" => "menu-principal", //on ajoute un id
+                //     "walker" => new Simple_menu() //récupération de notre template du menu
+                // )) 
+
+                // appel du menu avec sous-menu
+                wp_nav_menu(array(
+                    "theme_location" => "menu-sup", // on indique le menu à afficher
+                    "menu_class" => "custom-menu", // ajout de la classe pour le css
+                    "container" => false,
+                    'walker' => new Depth_menu() // récupération de notre template du menu
+                ))
+
+                ?>
                     </div>
                 </div>
+                <div class="col-md-2 mt-3 d-flex justify-content-end">
+                    <span class="fr">Fr</span>
+                </div>
             </div>
-            <div>
-                
-            </div>
-            <em><?php echo get_bloginfo('description'); ?></em>
-
-            <!-- on affiche le menu -->
-            <?php
-            // appel du menu simple
-            // wp_nav_menu(array(
-            //     "theme_location" => "menu-sup", // on indique le menu à afficher
-            //     "container" => "nav", // on indique que le menu sera dans une balise nav
-            //     "container_class" => "navbar navbar-expand-sm navbar-light", // on ajoute des class bootstrap
-            //     "menu_class" => "navbar-nav me-auto p-1", // on ajoute des class bootstrap
-            //     "menu_id" => "menu-principal", //on ajoute un id
-            //     "walker" => new Simple_menu() //récupération de notre template du menu
-            // )) 
-
-            // appel du menu avec sous-menu
-            wp_nav_menu(array(
-                "theme_location" => "menu-sup", // on indique le menu à afficher
-                "menu_class" => "custom-menu", // ajout de la classe pour le css
-                "container" => false,
-                'walker' => new Depth_menu() // récupération de notre template du menu
-            ))
-
-            ?>
-
         </div>
     </header>
