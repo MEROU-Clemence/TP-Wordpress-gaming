@@ -27,7 +27,7 @@ img {
 }
 
 
-/* STYLE POUR LE MENU AVEC SOUS-CATEGORIES */
+/* HEADER */
 
 .header-general{
     background-color: #262626;
@@ -57,8 +57,10 @@ img {
 .vertical-bar {
     background-color: #9C6326;
     height: 10px;
+    margin: 0 10px 0 10px;
     width: 2px;
 }
+
 
 
 /* suite du header */
@@ -77,14 +79,26 @@ img {
 .search-content {
     background-color: #FEFEFE;
     border-radius: 5px;
+    font-size: 12px;
     align-items: center;
     display: flex;
+    margin: 0 10px 0 10px;
 }
 
 #categorie {
     appearance: none;
     border: none;
     padding: 8px;
+}
+
+#categorie option {
+    background-color: #FEFEFE;
+    color: #2F2F2F;
+}
+
+#categorie option:hover {
+    background-color: #B9B9B9;
+    color: #F73312;
 }
 
 .search-bar input{
@@ -95,7 +109,7 @@ img {
     background-color: #F73312;
     border-radius: 5px;
     color: #FEFEFE;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: bold;
     padding: 12px;
 }
@@ -106,7 +120,8 @@ img {
 }
 
 .connexion{
-    font-size: 14px;
+    font-size: 12px;
+    margin-right: 15px;
 }
 
 .barre{
@@ -126,7 +141,7 @@ img {
     border-radius: 25px;
     color:#FEFEFE;
     margin: 5px;
-    padding: 10px 13px 10px 13px;
+    padding: 6px 9px 6px 9px;
 }
 
 .picto i:hover {
@@ -148,13 +163,24 @@ img {
     text-align: center;
 }
 
-#categorie-deux{
+#categorie-deux {
     appearance: none;
     background-color: #F73312;
     border-radius: 0 5px 5px 0;
     border: none;
     color: #FEFEFE; 
+    font-size: 12px;
     padding: 8px;
+}
+
+#categorie-deux option {
+    background-color: #F73312;
+    color: #FEFEFE;
+}
+
+#categorie-deux option:hover {
+    background-color:#B9B9B9;
+    color: #F73312;
 }
 
 .fr{
@@ -162,12 +188,12 @@ img {
     font-size: 12px;
 }
 
-
+/* Ce qui vient de WP directement avec l'appel de fonctions */
 
 ul.custom-menu {
     display: flex;
     list-style: none;
-    margin: 0;
+    margin: 0 0 0 20px;
     padding: 0;
 }
 
@@ -183,8 +209,13 @@ ul.custom-menu li:last-child {
 ul.custom-menu li a {
     padding: 10px;
     color: #B9B9B9;
+    font-size: 12px;
     text-decoration: none;
     display: block;
+}
+
+ul.custom-menu li a:hover {
+    color: #9C6326;
 }
 
 /* STYLE POUR LES SOUS-MENUS */
@@ -194,8 +225,8 @@ ul.custom-menu ul {
     top: 100%;
     left: 0;
     min-width: 200px;
-    background-color: #3e855c;
-    border: 1px #eeecec;
+    background-color:#B9B9B9;
+    border: 1px #2F2F2F;
     box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
     z-index: 999;
 }
@@ -206,7 +237,7 @@ ul.custom-menu ul li {
 
 ul.custom-menu ul li a {
     padding: 10px;
-    color: #e6c718;
+    color:#F73312;
     text-decoration: none;
     display: block;
 }
@@ -217,6 +248,58 @@ ul.custom-menu li:hover>ul {
     top: 100%;
     left: 0;
 }
+
+
+
+
+
+
+/* FOOTER */
+
+.footer-general {
+    background-color: #262626;
+    border-top: 1px solid #B9B9B9;
+    color: #B9B9B9;
+    font-size: 10px;
+}
+
+.footer-general div, .footer-general a {
+    padding: 5px 0 5px 0;
+}
+
+.title-footer {
+    color: #FEFEFE;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 10px 0 10px 0;
+}
+
+.block-footer {
+    margin: 20px;
+}
+
+.reseau i {
+    padding: 0 5px 0 5px;
+}
+
+.tel-footer {
+    color: #F73312;
+    font-size: 16px;
+    font-style: normal;
+}
+
+.tel-footer i {
+    padding-right: 5px;
+}
+
+#maCase {
+    border-radius: 0;
+}
+
+
+
+
+
 
 /* STYLE POUR LES APPAREILS MOBILES */
 @media(max-width: 768px) {
@@ -242,6 +325,7 @@ ul.custom-menu li:hover>ul {
         /* pour éviter le décalage du sous-menu */
     }
 }
+
 
 /* STYLE DE MON SINGLE ARTICLE */
 

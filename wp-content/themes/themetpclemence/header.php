@@ -43,7 +43,7 @@
                                 <form action="/rechercher" method="get">
                                     <div class=d-flex>
                                         <select id="categorie" name="categorie" onchange="redirectOnChange(this)">
-                                            <option value="toutes">Toutes catégories: &#9660;</option>
+                                            <option value="toutes">Toutes catégories: &nbsp; &nbsp; &nbsp; &#9660;</option>
                                             <option value="pc" data-link="http://tp-wp-clemence.lndo.site/product-category/pc-et-kit-pc/">PC et Kit-PC</option>
                                             <option value="tel" data-link="http://tp-wp-clemence.lndo.site/product-category/portables-et-tablettes/">Portables et tablettes</option>
                                             <option value="pieces" data-link="http://tp-wp-clemence.lndo.site/product-category/pieces-detaches/">Pièces détachées</option>
@@ -88,7 +88,7 @@
                             <div class="d-flex">
                                 <i class="bi bi-list hamburger"></i>
                                 <select id="categorie-deux" name="categorie" onchange="redirectOnChange(this)">
-                                    <option value="toutes">Toutes catégories &nbsp; &#9660;</option>
+                                    <option value="toutes">Toutes catégories &nbsp; &nbsp; &nbsp; &#9660;</option>
                                     <option value="accueil" data-link="http://tp-wp-clemence.lndo.site">Accueil</option>
                                     <option value="compétition" data-link="http://tp-wp-clemence.lndo.site/competition/">Compétitions</option>
                                     <option value="catalogue" data-link="http://tp-wp-clemence.lndo.site/catalogue/">Catalogue</option>
