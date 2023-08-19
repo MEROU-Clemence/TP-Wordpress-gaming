@@ -7,6 +7,10 @@ Tags: bootstrap, responsive, html5, css3, jquery, php, wordpress (des mots clefs
 
 */
 
+* {
+    box-sizing: border-box;
+}
+
 a {
     text-decoration: none;
 }
@@ -15,32 +19,26 @@ a:hover {
     color:#9C6326;
 }
 
+.line-separate {
+    border: 1px solid;
+    border-color: #2F2F2F;
+}
+
 img {
     width: 100% !important;
     height: auto !important;
     object-fit: contain;
 }
 
-figure {
-    display: flex;
-}
 
-figure>img {
-    padding: 5px;
-}
 
-.custom_a {
-    border-radius: 25px !important;
-}
-
-.custom_a:hover {
-    background-color: rgb(179, 175, 175) !important;
-}
 
 /* STYLE POUR LE MENU AVEC SOUS-CATEGORIES */
 
 .header-general{
-    background-color: #2F2F2F !important;
+    background-color: #262626;
+    border-bottom: #2F2F2F;
+    border: 1px solid;
     color: #B9B9B9;
 }
 
@@ -72,7 +70,7 @@ figure>img {
 }
 
 .vertical-bar {
-    background-color: #9C6326;
+    color: #9C6326;
     margin-top: 3px;
     height: 8px;
     width: 2px;
@@ -104,7 +102,6 @@ figure>img {
     border-radius: 5px;
     text-align: center;
     display: inline-block;
-    box-sizing: border-box;
 }
 
 #categorie {
@@ -131,9 +128,22 @@ figure>img {
     color: #F73312;
 }
 
+.compte {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
 
+.connexion a {
+    color:#FEFEFE;
+}
 
-
+.picto {
+    background-color: #F73312;
+    border-radius: 25px;
+    color: #B9B9B9;
+    padding: 5px;
+}
 
 ul.custom-menu {
     display: flex;
