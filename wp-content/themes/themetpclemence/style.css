@@ -250,6 +250,56 @@ ul.custom-menu li:hover>ul {
     left: 0;
 }
 
+/* MAIN */
+.bloc-main {
+    background-color: #FEFEFE;
+    max-width: 100%;
+    width: 100%;
+}
+
+.bloc-main p {
+    display: none;
+}
+
+.wp-block-group {
+    align-items: center;
+    background-color: black;
+    border-radius: 5px;
+    display: flex;
+    margin: 50px;
+    object-fit: contain;
+}
+
+.wp-block-group h2 {
+    color: #B9B9B9;
+    margin: 50px 50px 0 50px ;
+}
+
+.wp-block-buttons {
+    background-color: #F73312;
+    border-radius: 3px;
+    margin: 50px;
+    padding: 5px;
+    text-align: center;
+    width: 25%;
+}
+
+.wp-block-buttons:hover {
+    background-color: #B9B9B9;
+    color: #F73312;
+}
+
+.wp-block-buttons a {
+    color: #FEFEFE;
+    font-size: 10px;
+}
+
+.wp-block-buttons a:hover {
+    color: #F73312;
+}
+
+
+
 
 
 

@@ -4,7 +4,7 @@
 <!-- partie réservée au main -->
 <main>
     <div class="d-flex">
-        <div class="col-sm-8 bg-secondary bloc-main">
+        <div class="bloc-main">
             <?php
             // SI j'ai au moins un post, je boucle dessus pour récupérer chaque post
             if (have_posts()) : while (have_posts()) : the_post();
@@ -19,8 +19,6 @@
 
             <!-- <em>Partie pour le contenu</em> -->
         </div>
-        <!-- importer la sidebar -->
-        <?php get_sidebar(); ?>
     </div>
 </main>
 

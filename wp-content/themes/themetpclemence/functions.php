@@ -13,7 +13,6 @@ function register_menu()
     register_nav_menus(
         array(
             'menu-sup' => __('Main menu'), // __() permet de traduire le mot dans les différents langages
-            'menu-footer' => __('Footer menu')
         )
     );
 }
@@ -119,22 +118,3 @@ function monShortPromo($atts) //on ajoute un paramètre
 }
 // on ajoute le shortcode à notre theme
 add_shortcode('promo', 'monShortPromo');
-
-// WIDGET
-// fonction pour enregistrer le widget
-function register_custom_widget_area()
-{
-    register_sidebar(
-        array(
-            'id' => 'new-widget-area',
-            'name' => __('New Widget Area'),
-            'description' => __('Widget area for the sidebar'),
-            'before_widget' => '<div class="widget-content">',
-            'after_widget' => '</div>',
-            'before_title' => '<h3 class="widget-title">',
-            'after_title' => '</h3>'
-        )
-    );
-}
-// initialisation du widget
-add_action('widgets_init', 'register_custom_widget_area');
