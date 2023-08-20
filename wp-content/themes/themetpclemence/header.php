@@ -33,9 +33,7 @@
             <div class="logo-search-user justify-content-around">
                 <div class="row align-items-center">
                     <div class="col-md-2">
-                        <a href="<?php echo home_url(); ?>">
-                            <img class="logo-gaming-palace" src="<?php echo get_template_directory_uri(); ?>/uploads/2023/08/Logo-de-mon-site.png" alt="Logo de mon site">
-                        </a>
+                        <img class="logo-gaming-palace" src="<?php echo get_template_directory_uri(); ?>/uploads/2023/08/cropped-Logo-et-nom-du-site.png" alt="Logo de mon site">
                     </div>
                     <div class="col-md-5">
                         <div class="d-flex search-bar custom-center align-items-center justify-content-center">

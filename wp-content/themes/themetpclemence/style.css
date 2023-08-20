@@ -101,11 +101,12 @@ img {
     color: #F73312;
 }
 
-.search-bar input{
+.search-content input{
+    flex-grow: 1;
     padding: 10px;
 }
 
-.search-bar button{
+.search-content button{
     background-color: #F73312;
     border-radius: 5px;
     color: #FEFEFE;
@@ -114,7 +115,7 @@ img {
     padding: 12px;
 }
 
-.search-bar button:hover{
+.search-content button:hover{
     background-color:#B9B9B9;
     color: #F73312;
 }
@@ -255,7 +256,7 @@ ul.custom-menu li:hover>ul {
 
 
 /* FOOTER */
-
+/* Première partie */
 .footer-general {
     background-color: #262626;
     border-top: 1px solid #B9B9B9;
@@ -263,7 +264,7 @@ ul.custom-menu li:hover>ul {
     font-size: 10px;
 }
 
-.footer-general div, .footer-general a {
+.footer-general div, .footer-general a, .newsletter {
     padding: 5px 0 5px 0;
 }
 
@@ -285,19 +286,60 @@ ul.custom-menu li:hover>ul {
 .tel-footer {
     color: #F73312;
     font-size: 16px;
-    font-style: normal;
 }
 
 .tel-footer i {
-    padding-right: 5px;
+    font-style: normal;
+}
+
+.little-search-bar {
+    align-items: center;
+    background-color: #FEFEFE;
+    border-radius: 3px;
+    display: flex;
+    height: 20px;
+    justify-content: space-between;
+}
+
+.little-search-bar input {
+    border: none;
+    border-radius: 3px 0 0 3px;
+    flex-grow: 1;
+    padding: 5px;
+}
+
+.little-search-bar button {
+    background-color: #F73312;
+    border: none;
+    border-radius: 0 3px 3px 0;
+    color: #FEFEFE;
+    font-size: 10px;
+    padding: 5px 10px 5px 10px;
+}
+
+.little-search-bar button:hover {
+    background-color: #B9B9B9;
+    color: #F73312;
 }
 
 #maCase {
     border-radius: 0;
 }
 
+/* Deuxième partie */
+.vertical-bar-deux {
+    background-color:#B9B9B9;
+    height: 10px;
+    margin: 8px 10px 8px 10px;
+    width: 2px;
+}
 
-
+/* Troisième partie */
+.images-payements {
+    width: 5px!important;
+    height: auto !important;
+    object-fit: contain;
+}
 
 
 
