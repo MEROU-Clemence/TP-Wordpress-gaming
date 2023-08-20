@@ -251,17 +251,18 @@ ul.custom-menu li:hover>ul {
 }
 
 /* MAIN */
+/* général */
 .bloc-main {
     background-color: #FEFEFE;
     max-width: 100%;
     width: 100%;
 }
 
-.bloc-main p {
-    display: none;
+.bloc-main a h4 {
+    color: #FEFEFE;
 }
 
-.wp-block-group {
+.start-pub {
     align-items: center;
     background-color: black;
     border-radius: 5px;
@@ -270,12 +271,12 @@ ul.custom-menu li:hover>ul {
     object-fit: contain;
 }
 
-.wp-block-group h2 {
+.start-pub h2 {
     color: #B9B9B9;
     margin: 50px 50px 0 50px ;
 }
 
-.wp-block-buttons {
+.button-start {
     background-color: #F73312;
     border-radius: 3px;
     margin: 50px;
@@ -284,25 +285,249 @@ ul.custom-menu li:hover>ul {
     width: 25%;
 }
 
-.wp-block-buttons:hover {
+.button-start:hover {
     background-color: #B9B9B9;
     color: #F73312;
 }
 
-.wp-block-buttons a {
+.button-start a {
     color: #FEFEFE;
     font-size: 10px;
 }
 
-.wp-block-buttons a:hover {
+.button-start a:hover {
     color: #F73312;
 }
 
+.little-title-main {
+    background-color: none;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 50px 0 50px;
+}
 
+.little-title-main h3 {
+    align-items: center;
+    color: #2F2F2F;
+    display: flex;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+}
 
+.buttons-main {
+    display: flex;
+    align-items: center;
+}
 
+.buttons-main div {
+    border: 2px solid #B9B9B9;
+    border-radius: 25px;
+    margin: 0 2px 0 2px;
+}
 
+.buttons-main a {
+   color: #2F2F2F;
+   display: flex;
+   font-size: 12px;
+   font-weight: bold; 
+   padding: 3px 7px 3px 7px;
+   align-items: center;
+}
 
+.wp-block-separator {
+    margin: 20px 50px 20px 50px;
+}
+
+/* la mise en page des catégories*/
+/* par catégories */
+.gallery-category {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 20px 25px 20px 25px;
+}
+
+.gallery-category .wp-block-image {
+    margin: 5px;
+}
+
+.gallery-category .wp-block-image img {
+    border-radius: 3px;
+}
+
+.gallery-category .wp-block-image figcaption {
+    color: #2F2F2F;
+    font-size: 10px;
+    text-align: center;
+    padding: 5px 0 5px 0;
+}
+
+.pubs-by-category {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 20px 45px 20px 45px;
+}
+
+.pubs-by-category figure {
+    width: 70%;
+    border-radius: 0 3px 0 0;
+}
+
+.description-pub {
+    color:#FEFEFE;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 30px;
+    width: 50%;
+}
+
+.compilation-pub {
+    border-radius: 3px;
+    display: flex;
+    justify-content: space-between;
+    margin: 5px;
+}
+
+.soldes {
+    font-size: 10px;
+    text-align: center;
+    width: 80%;
+}
+
+.occasion {
+    font-size: 8px;
+}
+
+.pub-un {
+    background-color: black;
+}
+
+.pub-un .soldes {
+    background-color: #b8260c;
+}
+
+.pub-deux {
+    background-color:#860202;
+}
+
+.pub-deux .soldes {
+    background-color: rgb(255, 221, 0);
+    color: #2F2F2F;
+}
+
+.pub-trois {
+    background-color: #2F2F2F;
+}
+
+.pub-trois .soldes {
+    background-color: #F73312;
+}
+
+/* Nouveaux produits */
+.new-products {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 20px 50px 20px 50px;
+}
+
+.new-products .wp-block-image {
+    margin: 5px;
+}
+
+.new-products .wp-block-image img {
+    border-radius: 3px;
+}
+
+.new-products .wp-block-image figcaption {
+    color: #2F2F2F;
+    font-size: 10px;
+    text-align: center;
+    padding: 5px 0 5px 0;
+}
+
+.line-pub-color {
+    color: #FEFEFE;
+    display: flex;
+    font-size: 10px;
+    margin: 50px;
+}
+
+.line-pub-color .line-pub-color-un {
+    background-color: #262626;
+    border-radius: 3px 0 0 3px;
+    padding: 10px;
+    text-align: center;
+    width: 50%;
+}
+
+.line-pub-color .line-pub-color-deux {
+    background-color: #F73312;
+    border-radius: 0 3px 3px 0;
+    padding: 10px;
+    text-align: center;
+    width: 50%;
+}
+
+.big-category {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 50px 20px 50px;
+}
+
+.big-category h6 {
+    color: #262626;
+    display: flex;
+    font-size: 12px;
+    font-weight: bold;
+    justify-content: space-between;
+}
+
+.big-category a {
+    color: #262626;
+    font-size: 10px;
+    text-decoration: underline;
+}
+
+.big-category img {
+    border-radius: 5px;
+}
+
+.big-category figcaption {
+    color: #2F2F2F;
+    font-size: 10px;
+    text-align: center;
+    padding: 5px 0 5px 0;
+}
+
+.big-prems {
+    background-color: #8b8b8b;
+    border-radius: 3px;
+    font-size: 16px;
+    color: #262626;
+    font-weight: bold;
+    margin: 5px;
+    width: 25%;
+}
+
+.big-category .big-prems .soldes {
+    background-color: #F73312;
+    color: #FEFEFE;
+    text-align: center;
+    width: 50%;
+}
+
+.big-prems p {
+    text-align: center;
+}
+
+.big-two, .big-three, .big-for {
+    margin: 5px;
+    width: 25%;
+}
 
 
 /* FOOTER */
