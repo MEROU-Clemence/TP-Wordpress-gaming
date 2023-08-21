@@ -17,7 +17,7 @@ a {
 }
 
 a:hover {
-    color:#9C6326;
+    color: #9C6326;
 }
 
 img {
@@ -29,7 +29,7 @@ img {
 
 /* HEADER */
 
-.header-general{
+.header-general {
     background-color: #262626;
     border-bottom: #2F2F2F;
     border: 1px solid;
@@ -38,19 +38,19 @@ img {
 }
 
 /* ligne d'en-tête */
-.en-tete-line{
+.en-tete-line {
     border-bottom: 1px solid #2F2F2F;
     font-size: 10px;
     margin: 5px;
 }
 
-.custom-icon{
+.custom-icon {
     color: #B9B9B9;
     font-style: normal;
     padding-right: 4px;
 }
 
-.custom-icon a{
+.custom-icon a {
     padding: 0 4px 0 4px;
 }
 
@@ -70,8 +70,8 @@ img {
     margin: 5px;
 }
 
-.logo-gaming-palace{
-    width: 100px!important;
+.logo-gaming-palace {
+    width: 100px !important;
     height: auto !important;
     object-fit: contain;
 }
@@ -101,12 +101,12 @@ img {
     color: #F73312;
 }
 
-.search-content input{
+.search-content input {
     flex-grow: 1;
     padding: 10px;
 }
 
-.search-content button{
+.search-content button {
     background-color: #F73312;
     border-radius: 5px;
     color: #FEFEFE;
@@ -115,32 +115,32 @@ img {
     padding: 12px;
 }
 
-.search-content button:hover{
-    background-color:#B9B9B9;
+.search-content button:hover {
+    background-color: #B9B9B9;
     color: #F73312;
 }
 
-.connexion{
+.connexion {
     font-size: 12px;
     margin-right: 15px;
 }
 
-.barre{
+.barre {
     padding: 0 3px 0 3px;
 }
 
 .connexion a {
-    color:#FEFEFE;
+    color: #FEFEFE;
 }
 
-.connexion a:hover{
+.connexion a:hover {
     color: #9C6326;
 }
 
 .picto i {
     background-color: #F73312;
     border-radius: 25px;
-    color:#FEFEFE;
+    color: #FEFEFE;
     margin: 5px;
     padding: 6px 9px 6px 9px;
 }
@@ -154,7 +154,7 @@ img {
     justify-content: space-between;
 }
 
-.hamburger{
+.hamburger {
     align-items: center;
     background-color: #F73312;
     border-radius: 5px 0 0 5px;
@@ -169,7 +169,7 @@ img {
     background-color: #F73312;
     border-radius: 0 5px 5px 0;
     border: none;
-    color: #FEFEFE; 
+    color: #FEFEFE;
     font-size: 12px;
     padding: 8px;
 }
@@ -180,11 +180,11 @@ img {
 }
 
 #categorie-deux option:hover {
-    background-color:#B9B9B9;
+    background-color: #B9B9B9;
     color: #F73312;
 }
 
-.fr{
+.fr {
     color: #FEFEFE;
     font-size: 12px;
 }
@@ -226,7 +226,7 @@ ul.custom-menu ul {
     top: 100%;
     left: 0;
     min-width: 200px;
-    background-color:#B9B9B9;
+    background-color: #B9B9B9;
     border: 1px #2F2F2F;
     box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
     z-index: 999;
@@ -238,7 +238,7 @@ ul.custom-menu ul li {
 
 ul.custom-menu ul li a {
     padding: 10px;
-    color:#F73312;
+    color: #F73312;
     text-decoration: none;
     display: block;
 }
@@ -273,7 +273,7 @@ ul.custom-menu li:hover>ul {
 
 .start-pub h2 {
     color: #B9B9B9;
-    margin: 50px 50px 0 50px ;
+    margin: 50px 50px 0 50px;
 }
 
 .button-start {
@@ -327,12 +327,12 @@ ul.custom-menu li:hover>ul {
 }
 
 .buttons-main a {
-   color: #2F2F2F;
-   display: flex;
-   font-size: 12px;
-   font-weight: bold; 
-   padding: 3px 7px 3px 7px;
-   align-items: center;
+    color: #2F2F2F;
+    display: flex;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 3px 7px 3px 7px;
+    align-items: center;
 }
 
 .wp-block-separator {
@@ -376,7 +376,7 @@ ul.custom-menu li:hover>ul {
 }
 
 .description-pub {
-    color:#FEFEFE;
+    color: #FEFEFE;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -410,7 +410,7 @@ ul.custom-menu li:hover>ul {
 }
 
 .pub-deux {
-    background-color:#860202;
+    background-color: #860202;
 }
 
 .pub-deux .soldes {
@@ -524,11 +524,110 @@ ul.custom-menu li:hover>ul {
     text-align: center;
 }
 
-.big-two, .big-three, .big-for {
+.big-two,
+.big-three,
+.big-for {
     margin: 5px;
     width: 25%;
 }
 
+.sonic-and-co {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 20px 50px 20px 50px;
+}
+
+.sonic-and-co .wp-block-image {
+    background-color: rgb(54, 54, 190);
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.sonic-and-co figcaption {
+    color: #2F2F2F;
+    font-size: 10px;
+    text-align: center;
+    padding: 5px 0 5px 0;
+}
+
+.good-plans {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 20px 50px 20px 50px;
+}
+
+.good-plans .wp-block-image {
+    background-color: #FEFEFE;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.good-plans figcaption {
+    color: #2F2F2F;
+    font-size: 10px;
+    text-align: center;
+    padding: 5px 0 5px 0;
+}
+
+.avis {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 20px 50px 20px 50px;
+}
+
+.avis .wp-block-image {
+    background-color: #FEFEFE;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.articles-us {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 20px 50px 20px 50px;
+}
+
+.articles-us .wp-block-image {
+    background-color: #FEFEFE;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.articles-us figcaption {
+    color: #2F2F2F;
+    font-size: 10px;
+    text-align: center;
+    padding: 5px 0 5px 0;
+}
+
+.mark {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 20px 50px 20px 50px;
+}
+
+.mark .wp-block-image {
+    background-color: #B9B9B9;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.pub-canisky {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 20px 0 20px 0;
+}
+
+.pub-canisky .wp-block-image {
+    background-color: #B9B9B9;
+    margin: 5px;
+}
 
 /* FOOTER */
 /* Première partie */
@@ -539,7 +638,9 @@ ul.custom-menu li:hover>ul {
     font-size: 10px;
 }
 
-.footer-general div, .footer-general a, .newsletter {
+.footer-general div,
+.footer-general a,
+.newsletter {
     padding: 5px 0 5px 0;
 }
 
@@ -603,7 +704,7 @@ ul.custom-menu li:hover>ul {
 
 /* Deuxième partie */
 .vertical-bar-deux {
-    background-color:#B9B9B9;
+    background-color: #B9B9B9;
     height: 10px;
     margin: 8px 10px 8px 10px;
     width: 2px;
@@ -611,7 +712,7 @@ ul.custom-menu li:hover>ul {
 
 /* Troisième partie */
 .images-payements {
-    width: 5px!important;
+    width: 5px !important;
     height: auto !important;
     object-fit: contain;
 }
