@@ -1,0 +1,272 @@
+2023-08-21T09:32:26+00:00 CRITICAL Uncaught Error: Class 'Tp_Wp_Clemence_Widget' not found in /app/wp-includes/class-wp-widget-factory.php:62
+Stack trace:
+#0 /app/wp-includes/widgets.php(115): WP_Widget_Factory->register('Tp_Wp_Clemence_...')
+#1 /app/wp-content/plugins/plugin-tp-clemence/tp-clemence-plugin.php(22): register_widget('Tp_Wp_Clemence_...')
+#2 /app/wp-includes/class-wp-hook.php(310): Tpclem->{closure}('')
+#3 /app/wp-includes/class-wp-hook.php(334): WP_Hook->apply_filters(NULL, Array)
+#4 /app/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#5 /app/wp-includes/widgets.php(1858): do_action('widgets_init')
+#6 /app/wp-includes/class-wp-hook.php(310): wp_widgets_init('')
+#7 /app/wp-includes/class-wp-hook.php(334): WP_Hook->apply_filters(NULL, Array)
+#8 /app/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#9 /app/wp-settings.php(632): do_action('init')
+#10 /app/wp-config.php(102): require_once('/app/wp-setting...')
+#11 /app/wp-load.php(50): require_once('/app/wp-config....')
+#12 /app/wp-admin/admin.php(34): require_once('/ap in /app/wp-includes/class-wp-widget-factory.php on line 62
+
+2023-08-21T09:33:45+00:00 CRITICAL Uncaught Error: Class 'Tp_Wp_Clemence_Widget' not found in /app/wp-includes/class-wp-widget-factory.php:62
+Stack trace:
+#0 /app/wp-includes/widgets.php(115): WP_Widget_Factory->register('Tp_Wp_Clemence_...')
+#1 /app/wp-content/plugins/plugin-tp-clemence/tp-clemence-plugin.php(22): register_widget('Tp_Wp_Clemence_...')
+#2 /app/wp-includes/class-wp-hook.php(310): Tpclem->{closure}('')
+#3 /app/wp-includes/class-wp-hook.php(334): WP_Hook->apply_filters(NULL, Array)
+#4 /app/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#5 /app/wp-includes/widgets.php(1858): do_action('widgets_init')
+#6 /app/wp-includes/class-wp-hook.php(310): wp_widgets_init('')
+#7 /app/wp-includes/class-wp-hook.php(334): WP_Hook->apply_filters(NULL, Array)
+#8 /app/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#9 /app/wp-settings.php(632): do_action('init')
+#10 /app/wp-config.php(102): require_once('/app/wp-setting...')
+#11 /app/wp-load.php(50): require_once('/app/wp-config....')
+#12 /app/wp-admin/admin.php(34): require_once('/ap in /app/wp-includes/class-wp-widget-factory.php on line 62
+
+2023-08-21T09:33:47+00:00 CRITICAL Uncaught Error: Class 'Tp_Wp_Clemence_Widget' not found in /app/wp-includes/class-wp-widget-factory.php:62
+Stack trace:
+#0 /app/wp-includes/widgets.php(115): WP_Widget_Factory->register('Tp_Wp_Clemence_...')
+#1 /app/wp-content/plugins/plugin-tp-clemence/tp-clemence-plugin.php(22): register_widget('Tp_Wp_Clemence_...')
+#2 /app/wp-includes/class-wp-hook.php(310): Tpclem->{closure}('')
+#3 /app/wp-includes/class-wp-hook.php(334): WP_Hook->apply_filters(NULL, Array)
+#4 /app/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#5 /app/wp-includes/widgets.php(1858): do_action('widgets_init')
+#6 /app/wp-includes/class-wp-hook.php(310): wp_widgets_init('')
+#7 /app/wp-includes/class-wp-hook.php(334): WP_Hook->apply_filters(NULL, Array)
+#8 /app/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#9 /app/wp-settings.php(632): do_action('init')
+#10 /app/wp-config.php(102): require_once('/app/wp-setting...')
+#11 /app/wp-load.php(50): require_once('/app/wp-config....')
+#12 /app/wp-admin/admin.php(34): require_once('/ap in /app/wp-includes/class-wp-widget-factory.php on line 62
+
+2023-08-21T09:37:04+00:00 CRITICAL Uncaught Error: Class 'Tp_Wp_Clemence_Widget' not found in /app/wp-includes/class-wp-widget-factory.php:62
+Stack trace:
+#0 /app/wp-includes/widgets.php(115): WP_Widget_Factory->register('Tp_Wp_Clemence_...')
+#1 /app/wp-content/plugins/plugin-tp-clemence/tp-clemence-plugin.php(24): register_widget('Tp_Wp_Clemence_...')
+#2 /app/wp-includes/class-wp-hook.php(310): Tpclem->{closure}('')
+#3 /app/wp-includes/class-wp-hook.php(334): WP_Hook->apply_filters(NULL, Array)
+#4 /app/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#5 /app/wp-includes/widgets.php(1858): do_action('widgets_init')
+#6 /app/wp-includes/class-wp-hook.php(310): wp_widgets_init('')
+#7 /app/wp-includes/class-wp-hook.php(334): WP_Hook->apply_filters(NULL, Array)
+#8 /app/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#9 /app/wp-settings.php(632): do_action('init')
+#10 /app/wp-config.php(102): require_once('/app/wp-setting...')
+#11 /app/wp-load.php(50): require_once('/app/wp-config....')
+#12 /app/wp-admin/admin.php(34): require_once('/ap in /app/wp-includes/class-wp-widget-factory.php on line 62
+
+2023-08-21T09:37:04+00:00 CRITICAL Uncaught Error: Class 'Tp_Wp_Clemence_Widget' not found in /app/wp-includes/class-wp-widget-factory.php:62
+Stack trace:
+#0 /app/wp-includes/widgets.php(115): WP_Widget_Factory->register('Tp_Wp_Clemence_...')
+#1 /app/wp-content/plugins/plugin-tp-clemence/tp-clemence-plugin.php(24): register_widget('Tp_Wp_Clemence_...')
+#2 /app/wp-includes/class-wp-hook.php(310): Tpclem->{closure}('')
+#3 /app/wp-includes/class-wp-hook.php(334): WP_Hook->apply_filters(NULL, Array)
+#4 /app/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#5 /app/wp-includes/widgets.php(1858): do_action('widgets_init')
+#6 /app/wp-includes/class-wp-hook.php(310): wp_widgets_init('')
+#7 /app/wp-includes/class-wp-hook.php(334): WP_Hook->apply_filters(NULL, Array)
+#8 /app/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#9 /app/wp-settings.php(632): do_action('init')
+#10 /app/wp-config.php(102): require_once('/app/wp-setting...')
+#11 /app/wp-load.php(50): require_once('/app/wp-config....')
+#12 /app/wp-blog-header.php(13): require_once('/ap in /app/wp-includes/class-wp-widget-factory.php on line 62
+
+2023-08-21T09:37:06+00:00 CRITICAL Uncaught Error: Class 'Tp_Wp_Clemence_Widget' not found in /app/wp-includes/class-wp-widget-factory.php:62
+Stack trace:
+#0 /app/wp-includes/widgets.php(115): WP_Widget_Factory->register('Tp_Wp_Clemence_...')
+#1 /app/wp-content/plugins/plugin-tp-clemence/tp-clemence-plugin.php(24): register_widget('Tp_Wp_Clemence_...')
+#2 /app/wp-includes/class-wp-hook.php(310): Tpclem->{closure}('')
+#3 /app/wp-includes/class-wp-hook.php(334): WP_Hook->apply_filters(NULL, Array)
+#4 /app/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#5 /app/wp-includes/widgets.php(1858): do_action('widgets_init')
+#6 /app/wp-includes/class-wp-hook.php(310): wp_widgets_init('')
+#7 /app/wp-includes/class-wp-hook.php(334): WP_Hook->apply_filters(NULL, Array)
+#8 /app/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#9 /app/wp-settings.php(632): do_action('init')
+#10 /app/wp-config.php(102): require_once('/app/wp-setting...')
+#11 /app/wp-load.php(50): require_once('/app/wp-config....')
+#12 /app/wp-admin/admin.php(34): require_once('/ap in /app/wp-includes/class-wp-widget-factory.php on line 62
+
+2023-08-21T09:37:06+00:00 CRITICAL Uncaught Error: Class 'Tp_Wp_Clemence_Widget' not found in /app/wp-includes/class-wp-widget-factory.php:62
+Stack trace:
+#0 /app/wp-includes/widgets.php(115): WP_Widget_Factory->register('Tp_Wp_Clemence_...')
+#1 /app/wp-content/plugins/plugin-tp-clemence/tp-clemence-plugin.php(24): register_widget('Tp_Wp_Clemence_...')
+#2 /app/wp-includes/class-wp-hook.php(310): Tpclem->{closure}('')
+#3 /app/wp-includes/class-wp-hook.php(334): WP_Hook->apply_filters(NULL, Array)
+#4 /app/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#5 /app/wp-includes/widgets.php(1858): do_action('widgets_init')
+#6 /app/wp-includes/class-wp-hook.php(310): wp_widgets_init('')
+#7 /app/wp-includes/class-wp-hook.php(334): WP_Hook->apply_filters(NULL, Array)
+#8 /app/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#9 /app/wp-settings.php(632): do_action('init')
+#10 /app/wp-config.php(102): require_once('/app/wp-setting...')
+#11 /app/wp-load.php(50): require_once('/app/wp-config....')
+#12 /app/wp-blog-header.php(13): require_once('/ap in /app/wp-includes/class-wp-widget-factory.php on line 62
+
+2023-08-21T09:37:19+00:00 CRITICAL Uncaught Error: Class 'Tp_Wp_Clemence_Widget' not found in /app/wp-includes/class-wp-widget-factory.php:62
+Stack trace:
+#0 /app/wp-includes/widgets.php(115): WP_Widget_Factory->register('Tp_Wp_Clemence_...')
+#1 /app/wp-content/plugins/plugin-tp-clemence/tp-clemence-plugin.php(24): register_widget('Tp_Wp_Clemence_...')
+#2 /app/wp-includes/class-wp-hook.php(310): Tpclem->{closure}('')
+#3 /app/wp-includes/class-wp-hook.php(334): WP_Hook->apply_filters(NULL, Array)
+#4 /app/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#5 /app/wp-includes/widgets.php(1858): do_action('widgets_init')
+#6 /app/wp-includes/class-wp-hook.php(310): wp_widgets_init('')
+#7 /app/wp-includes/class-wp-hook.php(334): WP_Hook->apply_filters(NULL, Array)
+#8 /app/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#9 /app/wp-settings.php(632): do_action('init')
+#10 /app/wp-config.php(102): require_once('/app/wp-setting...')
+#11 /app/wp-load.php(50): require_once('/app/wp-config....')
+#12 /app/wp-admin/admin.php(34): require_once('/ap in /app/wp-includes/class-wp-widget-factory.php on line 62
+
+2023-08-21T09:37:19+00:00 CRITICAL Uncaught Error: Class 'Tp_Wp_Clemence_Widget' not found in /app/wp-includes/class-wp-widget-factory.php:62
+Stack trace:
+#0 /app/wp-includes/widgets.php(115): WP_Widget_Factory->register('Tp_Wp_Clemence_...')
+#1 /app/wp-content/plugins/plugin-tp-clemence/tp-clemence-plugin.php(24): register_widget('Tp_Wp_Clemence_...')
+#2 /app/wp-includes/class-wp-hook.php(310): Tpclem->{closure}('')
+#3 /app/wp-includes/class-wp-hook.php(334): WP_Hook->apply_filters(NULL, Array)
+#4 /app/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#5 /app/wp-includes/widgets.php(1858): do_action('widgets_init')
+#6 /app/wp-includes/class-wp-hook.php(310): wp_widgets_init('')
+#7 /app/wp-includes/class-wp-hook.php(334): WP_Hook->apply_filters(NULL, Array)
+#8 /app/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#9 /app/wp-settings.php(632): do_action('init')
+#10 /app/wp-config.php(102): require_once('/app/wp-setting...')
+#11 /app/wp-load.php(50): require_once('/app/wp-config....')
+#12 /app/wp-blog-header.php(13): require_once('/ap in /app/wp-includes/class-wp-widget-factory.php on line 62
+
+2023-08-21T09:37:21+00:00 CRITICAL Uncaught Error: Class 'Tp_Wp_Clemence_Widget' not found in /app/wp-includes/class-wp-widget-factory.php:62
+Stack trace:
+#0 /app/wp-includes/widgets.php(115): WP_Widget_Factory->register('Tp_Wp_Clemence_...')
+#1 /app/wp-content/plugins/plugin-tp-clemence/tp-clemence-plugin.php(24): register_widget('Tp_Wp_Clemence_...')
+#2 /app/wp-includes/class-wp-hook.php(310): Tpclem->{closure}('')
+#3 /app/wp-includes/class-wp-hook.php(334): WP_Hook->apply_filters(NULL, Array)
+#4 /app/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#5 /app/wp-includes/widgets.php(1858): do_action('widgets_init')
+#6 /app/wp-includes/class-wp-hook.php(310): wp_widgets_init('')
+#7 /app/wp-includes/class-wp-hook.php(334): WP_Hook->apply_filters(NULL, Array)
+#8 /app/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#9 /app/wp-settings.php(632): do_action('init')
+#10 /app/wp-config.php(102): require_once('/app/wp-setting...')
+#11 /app/wp-load.php(50): require_once('/app/wp-config....')
+#12 /app/wp-admin/admin.php(34): require_once('/ap in /app/wp-includes/class-wp-widget-factory.php on line 62
+
+2023-08-21T09:37:21+00:00 CRITICAL Uncaught Error: Class 'Tp_Wp_Clemence_Widget' not found in /app/wp-includes/class-wp-widget-factory.php:62
+Stack trace:
+#0 /app/wp-includes/widgets.php(115): WP_Widget_Factory->register('Tp_Wp_Clemence_...')
+#1 /app/wp-content/plugins/plugin-tp-clemence/tp-clemence-plugin.php(24): register_widget('Tp_Wp_Clemence_...')
+#2 /app/wp-includes/class-wp-hook.php(310): Tpclem->{closure}('')
+#3 /app/wp-includes/class-wp-hook.php(334): WP_Hook->apply_filters(NULL, Array)
+#4 /app/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#5 /app/wp-includes/widgets.php(1858): do_action('widgets_init')
+#6 /app/wp-includes/class-wp-hook.php(310): wp_widgets_init('')
+#7 /app/wp-includes/class-wp-hook.php(334): WP_Hook->apply_filters(NULL, Array)
+#8 /app/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#9 /app/wp-settings.php(632): do_action('init')
+#10 /app/wp-config.php(102): require_once('/app/wp-setting...')
+#11 /app/wp-load.php(50): require_once('/app/wp-config....')
+#12 /app/wp-blog-header.php(13): require_once('/ap in /app/wp-includes/class-wp-widget-factory.php on line 62
+
+2023-08-21T09:37:22+00:00 CRITICAL Uncaught Error: Class 'Tp_Wp_Clemence_Widget' not found in /app/wp-includes/class-wp-widget-factory.php:62
+Stack trace:
+#0 /app/wp-includes/widgets.php(115): WP_Widget_Factory->register('Tp_Wp_Clemence_...')
+#1 /app/wp-content/plugins/plugin-tp-clemence/tp-clemence-plugin.php(24): register_widget('Tp_Wp_Clemence_...')
+#2 /app/wp-includes/class-wp-hook.php(310): Tpclem->{closure}('')
+#3 /app/wp-includes/class-wp-hook.php(334): WP_Hook->apply_filters(NULL, Array)
+#4 /app/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#5 /app/wp-includes/widgets.php(1858): do_action('widgets_init')
+#6 /app/wp-includes/class-wp-hook.php(310): wp_widgets_init('')
+#7 /app/wp-includes/class-wp-hook.php(334): WP_Hook->apply_filters(NULL, Array)
+#8 /app/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#9 /app/wp-settings.php(632): do_action('init')
+#10 /app/wp-config.php(102): require_once('/app/wp-setting...')
+#11 /app/wp-load.php(50): require_once('/app/wp-config....')
+#12 /app/wp-admin/admin.php(34): require_once('/ap in /app/wp-includes/class-wp-widget-factory.php on line 62
+
+2023-08-21T09:37:22+00:00 CRITICAL Uncaught Error: Class 'Tp_Wp_Clemence_Widget' not found in /app/wp-includes/class-wp-widget-factory.php:62
+Stack trace:
+#0 /app/wp-includes/widgets.php(115): WP_Widget_Factory->register('Tp_Wp_Clemence_...')
+#1 /app/wp-content/plugins/plugin-tp-clemence/tp-clemence-plugin.php(24): register_widget('Tp_Wp_Clemence_...')
+#2 /app/wp-includes/class-wp-hook.php(310): Tpclem->{closure}('')
+#3 /app/wp-includes/class-wp-hook.php(334): WP_Hook->apply_filters(NULL, Array)
+#4 /app/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#5 /app/wp-includes/widgets.php(1858): do_action('widgets_init')
+#6 /app/wp-includes/class-wp-hook.php(310): wp_widgets_init('')
+#7 /app/wp-includes/class-wp-hook.php(334): WP_Hook->apply_filters(NULL, Array)
+#8 /app/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#9 /app/wp-settings.php(632): do_action('init')
+#10 /app/wp-config.php(102): require_once('/app/wp-setting...')
+#11 /app/wp-load.php(50): require_once('/app/wp-config....')
+#12 /app/wp-blog-header.php(13): require_once('/ap in /app/wp-includes/class-wp-widget-factory.php on line 62
+
+2023-08-21T09:37:57+00:00 CRITICAL Uncaught Error: Class 'Tp_Wp_Clemence_Widget' not found in /app/wp-includes/class-wp-widget-factory.php:62
+Stack trace:
+#0 /app/wp-includes/widgets.php(115): WP_Widget_Factory->register('Tp_Wp_Clemence_...')
+#1 /app/wp-content/plugins/plugin-tp-clemence/tp-clemence-plugin.php(24): register_widget('Tp_Wp_Clemence_...')
+#2 /app/wp-includes/class-wp-hook.php(310): Tpclem->{closure}('')
+#3 /app/wp-includes/class-wp-hook.php(334): WP_Hook->apply_filters(NULL, Array)
+#4 /app/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#5 /app/wp-includes/widgets.php(1858): do_action('widgets_init')
+#6 /app/wp-includes/class-wp-hook.php(310): wp_widgets_init('')
+#7 /app/wp-includes/class-wp-hook.php(334): WP_Hook->apply_filters(NULL, Array)
+#8 /app/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#9 /app/wp-settings.php(632): do_action('init')
+#10 /app/wp-config.php(102): require_once('/app/wp-setting...')
+#11 /app/wp-load.php(50): require_once('/app/wp-config....')
+#12 /app/wp-admin/admin.php(34): require_once('/ap in /app/wp-includes/class-wp-widget-factory.php on line 62
+
+2023-08-21T09:37:57+00:00 CRITICAL Uncaught Error: Class 'Tp_Wp_Clemence_Widget' not found in /app/wp-includes/class-wp-widget-factory.php:62
+Stack trace:
+#0 /app/wp-includes/widgets.php(115): WP_Widget_Factory->register('Tp_Wp_Clemence_...')
+#1 /app/wp-content/plugins/plugin-tp-clemence/tp-clemence-plugin.php(24): register_widget('Tp_Wp_Clemence_...')
+#2 /app/wp-includes/class-wp-hook.php(310): Tpclem->{closure}('')
+#3 /app/wp-includes/class-wp-hook.php(334): WP_Hook->apply_filters(NULL, Array)
+#4 /app/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#5 /app/wp-includes/widgets.php(1858): do_action('widgets_init')
+#6 /app/wp-includes/class-wp-hook.php(310): wp_widgets_init('')
+#7 /app/wp-includes/class-wp-hook.php(334): WP_Hook->apply_filters(NULL, Array)
+#8 /app/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#9 /app/wp-settings.php(632): do_action('init')
+#10 /app/wp-config.php(102): require_once('/app/wp-setting...')
+#11 /app/wp-load.php(50): require_once('/app/wp-config....')
+#12 /app/wp-blog-header.php(13): require_once('/ap in /app/wp-includes/class-wp-widget-factory.php on line 62
+
+2023-08-21T09:38:09+00:00 CRITICAL Uncaught Error: Class 'Tp_Wp_Clemence_Widget' not found in /app/wp-includes/class-wp-widget-factory.php:62
+Stack trace:
+#0 /app/wp-includes/widgets.php(115): WP_Widget_Factory->register('Tp_Wp_Clemence_...')
+#1 /app/wp-content/plugins/plugin-tp-clemence/tp-clemence-plugin.php(24): register_widget('Tp_Wp_Clemence_...')
+#2 /app/wp-includes/class-wp-hook.php(310): Tpclem->{closure}('')
+#3 /app/wp-includes/class-wp-hook.php(334): WP_Hook->apply_filters(NULL, Array)
+#4 /app/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#5 /app/wp-includes/widgets.php(1858): do_action('widgets_init')
+#6 /app/wp-includes/class-wp-hook.php(310): wp_widgets_init('')
+#7 /app/wp-includes/class-wp-hook.php(334): WP_Hook->apply_filters(NULL, Array)
+#8 /app/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#9 /app/wp-settings.php(632): do_action('init')
+#10 /app/wp-config.php(102): require_once('/app/wp-setting...')
+#11 /app/wp-load.php(50): require_once('/app/wp-config....')
+#12 /app/wp-blog-header.php(13): require_once('/ap in /app/wp-includes/class-wp-widget-factory.php on line 62
+
+2023-08-21T09:38:09+00:00 CRITICAL Uncaught Error: Class 'Tp_Wp_Clemence_Widget' not found in /app/wp-includes/class-wp-widget-factory.php:62
+Stack trace:
+#0 /app/wp-includes/widgets.php(115): WP_Widget_Factory->register('Tp_Wp_Clemence_...')
+#1 /app/wp-content/plugins/plugin-tp-clemence/tp-clemence-plugin.php(24): register_widget('Tp_Wp_Clemence_...')
+#2 /app/wp-includes/class-wp-hook.php(310): Tpclem->{closure}('')
+#3 /app/wp-includes/class-wp-hook.php(334): WP_Hook->apply_filters(NULL, Array)
+#4 /app/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#5 /app/wp-includes/widgets.php(1858): do_action('widgets_init')
+#6 /app/wp-includes/class-wp-hook.php(310): wp_widgets_init('')
+#7 /app/wp-includes/class-wp-hook.php(334): WP_Hook->apply_filters(NULL, Array)
+#8 /app/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#9 /app/wp-settings.php(632): do_action('init')
+#10 /app/wp-config.php(102): require_once('/app/wp-setting...')
+#11 /app/wp-load.php(50): require_once('/app/wp-config....')
+#12 /app/wp-blog-header.php(13): require_once('/ap in /app/wp-includes/class-wp-widget-factory.php on line 62
+
