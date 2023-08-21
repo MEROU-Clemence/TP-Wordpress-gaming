@@ -1,4 +1,4 @@
-<div class="col-sm-3 bg-warning offset-1 blog-sidebar">
+<div class="col-sm-3 offset-1 blog-sidebar">
     <div class="sidebar-module sidebar-module-insert">
         <?php
         // affichage du widget dans la sidebar

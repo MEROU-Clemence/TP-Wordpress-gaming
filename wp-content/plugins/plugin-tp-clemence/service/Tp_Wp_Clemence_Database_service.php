@@ -12,13 +12,21 @@ class Tp_Wp_Clemence_Database_Service
     {
         // on appelle la variable globale $wpdb
         global $wpdb;
+
+        // COMPETITION
+        $wpdb->query("CREATE TABLE IF NOT EXISTS {$wpdb->prefix}clem_competition(
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            label VARCHAR(150) NOT NULL)");
+
+        // JOUEUR
         // création de la table en BDD
         $wpdb->query("CREATE TABLE IF NOT EXISTS {$wpdb->prefix}clem_player(
-            id INT AUTO_INCREMENT PRIMARY KEY,
-            nom VARCHAR(150) NOT NULL,
-            prenom VARCHAR(150) NOT NULL,
-            surnom VARCHAR(150) NOT NULL,
-            email VARCHAR(150) NOT NULL)");
+                    id INT AUTO_INCREMENT PRIMARY KEY,
+                    nom VARCHAR(150) NOT NULL,
+                    prenom VARCHAR(150) NOT NULL,
+                    surnom VARCHAR(150) NOT NULL,
+                    email VARCHAR(150) NOT NULL
+                    competition_id INT(10) NOT NULL");
 
         // on regarde si la table continet des lignes (rows)
         $count = $wpdb->get_var("SELECT COUNT(*) FROM {$wpdb->prefix}clem_player");
@@ -29,9 +37,64 @@ class Tp_Wp_Clemence_Database_Service
                 "nom" => "Doe",
                 "prenom" => "John",
                 "surnom" => "Jojo le dodo",
-                "email" => "john.doe@gmail.com"
+                "email" => "john.doe@gmail.com",
+                "competition" => "ma compète"
             ]);
         }
+
+        // GROUPE
+        $wpdb->query("CREATE TABLE IF NOT EXISTS {$wpdb->prefix}clem_group(
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            label VARCHAR(150) NOT NULL)");
+
+        $count = $wpdb->get_var("SELECT COUNT(*) FROM {$wpdb->prefix}clem_group");
+
+        // POULE
+        $wpdb->query("CREATE TABLE IF NOT EXISTS {$wpdb->prefix}clem_pool(
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            competition_id int(10) NOT NULL,
+            groupe_id int(10) NOT NULL,
+            player_id int(10) NOT NULL,
+            FOREIGN KEY (competition_id) REFERENCES {$wpdb->prefix}clem_competition(id),
+            FOREIGN KEY (groupe_id) REFERENCES {$wpdb->prefix}clem_group(id),
+            FOREIGN KEY (player_id) REFERENCES {$wpdb->prefix}clem_player(id))");
+
+        // on regarde si la table continet des lignes (rows)
+        $count = $wpdb->get_var("SELECT COUNT(*) FROM {$wpdb->prefix}clem_pool");
+
+        // MATCH
+        $wpdb->query("CREATE TABLE IF NOT EXISTS {$wpdb->prefix}clem_match(
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            joueur1_id int(10) NOT NULL,
+            joueur2_id int(10) NOT NULL,
+            date_match int(10) NOT NULL,
+            is_pool BOOLEAN DEFAULT false,
+            FOREIGN KEY (joueur1_id) REFERENCES {$wpdb->prefix}clem_player(id),
+            FOREIGN KEY (joueur2_id) REFERENCES {$wpdb->prefix}clem_player(id))");
+
+        // POINTS
+        $wpdb->query("CREATE TABLE IF NOT EXISTS {$wpdb->prefix}clem_points(
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            label VARCHAR(150) NOT NULL,
+            points int(10) NOT NULL)");
+
+        // on regarde si la table continet des lignes (rows)
+        $count = $wpdb->get_var("SELECT COUNT(*) FROM {$wpdb->prefix}clem_points");
+
+        // SCORES
+        $wpdb->query("CREATE TABLE IF NOT EXISTS {$wpdb->prefix}clem_scores(
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            points_id int(10) NOT NULL,
+            player_id int(10) NOT NULL,
+            match_id int(10) NOT NULL,
+            pool_id int(10) NOT NULL,
+            FOREIGN KEY (points_id) REFERENCES {$wpdb->prefix}clem_points(id),
+            FOREIGN KEY (player_id) REFERENCES {$wpdb->prefix}clem_player(id),
+            FOREIGN KEY (match_id) REFERENCES {$wpdb->prefix}clem_match(id),
+            FOREIGN KEY (pool_id) REFERENCES {$wpdb->prefix}clem_pool(id))");
+
+        // on regarde si la table continet des lignes (rows)
+        $count = $wpdb->get_var("SELECT COUNT(*) FROM {$wpdb->prefix}clem_scores");
     }
 
 
@@ -43,8 +106,8 @@ class Tp_Wp_Clemence_Database_Service
         return $res;
     }
 
-    // function pour enregistrer un joueur
-    public function save_player()
+    // function pour enregistrer un client
+    public function save_client()
     {
         global $wpdb;
         // dans une variable, on va récupérer les données du formulaire
@@ -52,7 +115,8 @@ class Tp_Wp_Clemence_Database_Service
             "nom" => $_POST["nom"],
             "prenom" => $_POST["prenom"],
             "surnom" => $_POST["surnom"],
-            "email" => $_POST["email"]
+            "email" => $_POST["email"],
+            "competition" => $_POST["competition"]
         ];
         // on vérifie que le client n'existe pas déjà
         $row = $wpdb->get_row("SELECT * FROM {$wpdb->prefix}clem_player WHERE email = '" . $data["email"] . "'");
