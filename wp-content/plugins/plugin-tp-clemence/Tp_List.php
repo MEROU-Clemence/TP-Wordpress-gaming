@@ -65,6 +65,7 @@ class Tp_List extends WP_List_Table
             'id' => 'id',
             'nom' => 'Nom',
             'prenom' => 'Prénom',
+            'surnom' => 'Surnom',
             'email' => 'Email',
             'competition' => 'Compétition'
         ];
@@ -98,6 +99,7 @@ class Tp_List extends WP_List_Table
             case 'id';
             case 'nom';
             case 'prenom';
+            case 'surnom';
             case 'email';
             case 'competition':
                 return $item->$column_name;
@@ -114,6 +116,7 @@ class Tp_List extends WP_List_Table
             'id' => ['id', true],
             'nom' => ['nom', true],
             'prenom' => ['prenom', true],
+            'surnom' => ['surnom', true],
             'email' => ['email', true],
             'competition' => ['competition', true]
         ];

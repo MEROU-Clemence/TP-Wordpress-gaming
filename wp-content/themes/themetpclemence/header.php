@@ -28,12 +28,18 @@
                     <a class="p-1" href="#">Services customisation</a>
                     <div class="vertical-bar"></div>
                     <a class="p-1" href="#">Cadeaux</a>
-                </div>   
+                </div>
             </div>
             <div class="logo-search-user justify-content-around">
                 <div class="row align-items-center">
                     <div class="col-md-2">
-                        <img class="logo-gaming-palace" src="<?php echo get_template_directory_uri(); ?>/uploads/2023/08/cropped-Logo-et-nom-du-site.png" alt="Logo de mon site">
+                        <a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
+                            <?php
+                            $custom_logo_id = get_theme_mod('custom_logo');
+                            $image = wp_get_attachment_image_src($custom_logo_id, 'full');
+                            ?>
+                            <img src="<?php echo $image[0]; ?>" alt="Logo de mon site">
+                        </a>
                     </div>
                     <div class="col-md-5">
                         <div class="d-flex search-bar custom-center align-items-center justify-content-center">
@@ -77,7 +83,7 @@
                             </div>
                         </div>
                     </div>
-                </div>    
+                </div>
             </div>
             <div class="menu-pages d-flex justify-content-around">
                 <div class="d-flex justify-content-around">
@@ -96,30 +102,30 @@
                     </div>
                     <div class="col-md-5">
                         <em><?php echo get_bloginfo('description'); ?></em>
-                    
-                
 
-                <!-- on affiche le menu -->
-                <?php
-                // appel du menu simple
-                // wp_nav_menu(array(
-                //     "theme_location" => "menu-sup", // on indique le menu à afficher
-                //     "container" => "nav", // on indique que le menu sera dans une balise nav
-                //     "container_class" => "navbar navbar-expand-sm navbar-light", // on ajoute des class bootstrap
-                //     "menu_class" => "navbar-nav me-auto p-1", // on ajoute des class bootstrap
-                //     "menu_id" => "menu-principal", //on ajoute un id
-                //     "walker" => new Simple_menu() //récupération de notre template du menu
-                // )) 
 
-                // appel du menu avec sous-menu
-                wp_nav_menu(array(
-                    "theme_location" => "menu-sup", // on indique le menu à afficher
-                    "menu_class" => "custom-menu", // ajout de la classe pour le css
-                    "container" => false,
-                    'walker' => new Depth_menu() // récupération de notre template du menu
-                ))
 
-                ?>
+                        <!-- on affiche le menu -->
+                        <?php
+                        // appel du menu simple
+                        // wp_nav_menu(array(
+                        //     "theme_location" => "menu-sup", // on indique le menu à afficher
+                        //     "container" => "nav", // on indique que le menu sera dans une balise nav
+                        //     "container_class" => "navbar navbar-expand-sm navbar-light", // on ajoute des class bootstrap
+                        //     "menu_class" => "navbar-nav me-auto p-1", // on ajoute des class bootstrap
+                        //     "menu_id" => "menu-principal", //on ajoute un id
+                        //     "walker" => new Simple_menu() //récupération de notre template du menu
+                        // )) 
+
+                        // appel du menu avec sous-menu
+                        wp_nav_menu(array(
+                            "theme_location" => "menu-sup", // on indique le menu à afficher
+                            "menu_class" => "custom-menu", // ajout de la classe pour le css
+                            "container" => false,
+                            'walker' => new Depth_menu() // récupération de notre template du menu
+                        ))
+
+                        ?>
                     </div>
                 </div>
                 <div class="col-md-2 mt-3 d-flex justify-content-end">

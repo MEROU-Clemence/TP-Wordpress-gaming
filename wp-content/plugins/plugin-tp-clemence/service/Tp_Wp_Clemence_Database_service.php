@@ -18,6 +18,15 @@ class Tp_Wp_Clemence_Database_Service
             id INT AUTO_INCREMENT PRIMARY KEY,
             label VARCHAR(150) NOT NULL)");
 
+        // on regarde si la table continet des lignes (rows)
+        $count = $wpdb->get_var("SELECT COUNT(*) FROM {$wpdb->prefix}clem_competition");
+
+        // si la table est vide je vais lui insérer des valeurs par défaut
+        if ($count == 0) {
+            $wpdb->insert("{$wpdb->prefix}clem_competiton", [
+                "label" => "Super Compète"
+            ]);
+        }
         // JOUEUR
         // création de la table en BDD
         $wpdb->query("CREATE TABLE IF NOT EXISTS {$wpdb->prefix}clem_player(
@@ -25,8 +34,9 @@ class Tp_Wp_Clemence_Database_Service
                     nom VARCHAR(150) NOT NULL,
                     prenom VARCHAR(150) NOT NULL,
                     surnom VARCHAR(150) NOT NULL,
-                    email VARCHAR(150) NOT NULL
-                    competition_id INT(10) NOT NULL");
+                    email VARCHAR(150) NOT NULL,
+                    competition_id INT(10) NOT NULL,
+                    FOREIGN KEY (competition_id) REFERENCES {$wpdb->prefix}clem_competition(id))");
 
         // on regarde si la table continet des lignes (rows)
         $count = $wpdb->get_var("SELECT COUNT(*) FROM {$wpdb->prefix}clem_player");
@@ -38,7 +48,7 @@ class Tp_Wp_Clemence_Database_Service
                 "prenom" => "John",
                 "surnom" => "Jojo le dodo",
                 "email" => "john.doe@gmail.com",
-                "competition" => "ma compète"
+                "competition_id" => 1
             ]);
         }
 
@@ -126,6 +136,7 @@ class Tp_Wp_Clemence_Database_Service
             $wpdb->insert("{$wpdb->prefix}clem_player", $data);
         } else {
             // TODO: faire un message d'erreur
+            wp_die("Le client avec l'adresse e-mail {$data["email"]} existe déjà.");
         }
     }
 
@@ -141,5 +152,12 @@ class Tp_Wp_Clemence_Database_Service
         // effectuer la requête de suppression
         // implode = transforme un tableau en chaîne de caractères
         $wpdb->query("DELETE FROM {$wpdb->prefix}clem_player WHERE id IN (" . implode(",", $ids) . ")");
+    }
+
+    // fonction qui supprime la table lors de la désinstallation du plugin
+    public static function delete_db()
+    {
+        global $wpdb;
+        $wpdb->query("DROP TABLE IF EXISTS {$wpdb->prefix}clem_player");
     }
 }

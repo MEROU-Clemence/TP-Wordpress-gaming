@@ -1,4 +1,5 @@
 <?php
+add_theme_support('custom_logo');
 
 // Création d'un menu de navigation
 // 1. On enregistre le menu
@@ -137,3 +138,38 @@ function register_custom_widget_area()
 }
 // initialisation du widget
 add_action('widgets_init', 'register_custom_widget_area');
+
+// Ajouter mon logo dynamique
+// function wpc_theme_support()
+// {
+//     add_theme_support('custom-logo', array(
+//         'flex-height' => true,
+//         'flex-width'  => true,
+//     ));
+// }
+// add_action('after_setup_theme', 'wpc_theme_support');
+
+function wpc_customize_register($wp_customize)
+{
+    $wp_customize->add_section(
+        'wpc_logo_section',
+        array(
+            'title'          => __('Logo', 'themetpclemence'),
+            'priority'       => 30,
+            'description'    => __('Upload a logo to replace the default site name and description in the header', 'themetpclemence')
+        )
+    );
+    $wp_customize->add_setting('wpc_logo');
+    $wp_customize->add_control(
+        new WP_Customize_Image_Control(
+            $wp_customize,
+            'wpc_logo',
+            array(
+                'label'      => __('Logo', 'themetpclemence'),
+                'section'    => 'wpc_logo_section',
+                'settings'   => 'wpc_logo'
+            )
+        )
+    );
+}
+add_action('customize_register', 'wpc_customize_register');

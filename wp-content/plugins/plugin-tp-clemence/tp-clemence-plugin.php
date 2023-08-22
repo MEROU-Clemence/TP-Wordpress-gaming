@@ -86,47 +86,47 @@ class Tpclem
             array($this, "mesClients")
         );
 
-        // JOUEURS
-        add_submenu_page(
-            "gaming-client",
-            "JOUEURS",
-            "JOUEURS",
-            "manage_options",
-            "gaming-competition-add",
-            array($this, "mesClients")
-        );
+        //     // JOUEURS
+        //     add_submenu_page(
+        //         "gaming-client",
+        //         "JOUEURS",
+        //         "JOUEURS",
+        //         "manage_options",
+        //         "gaming-competition-add",
+        //         array($this, "mesClients")
+        //     );
 
-        // COMPETITIONS
-        add_submenu_page(
-            "gaming-client",
-            "COMPETITIONS",
-            "COMPETITIONS",
-            "manage_options",
-            "gaming-competition-add",
-            array($this, "mesClients")
-        );
+        //     // COMPETITIONS
+        //     add_submenu_page(
+        //         "gaming-client",
+        //         "COMPETITIONS",
+        //         "COMPETITIONS",
+        //         "manage_options",
+        //         "gaming-competition-add",
+        //         array($this, "mesClients")
+        //     );
 
-        // POULES
-        add_submenu_page(
-            "gaming-client",
-            "POULES",
-            "POULES",
-            "manage_options",
-            "gaming-competition-add",
-            array($this, "mesClients")
-        );
+        //     // POULES
+        //     add_submenu_page(
+        //         "gaming-client",
+        //         "POULES",
+        //         "POULES",
+        //         "manage_options",
+        //         "gaming-competition-add",
+        //         array($this, "mesClients")
+        //     );
 
-        // RESULTATS
-        add_submenu_page(
-            "gaming-client",
-            "RESULTATS",
-            "RESULTATS",
-            "manage_options",
-            "gaming-competition-add",
-            array($this, "mesClients")
-        );
+        //     // RESULTATS
+        //     add_submenu_page(
+        //         "gaming-client",
+        //         "RESULTATS",
+        //         "RESULTATS",
+        //         "manage_options",
+        //         "gaming-competition-add",
+        //         array($this, "mesClients")
+        //     );
+
     }
-
     // fonction d'affichage pour le menu
     public function mesClients()
     {
@@ -209,6 +209,11 @@ class Tpclem
                 "<label for='prenom'>Prénom</label>" .
                 "<input type='text' name='prenom' id='prenom' class='widefat' required>" .
                 "</div>";
+            // input surnom
+            echo "<div>" .
+                "<label for='surnom'>Surnom</label>" .
+                "<input type='text' name='surnom' id='surnom' class='widefat' required>" .
+                "</div>";
             // input email
             echo "<div>" .
                 "<label for='email'>E-mail</label>" .
@@ -216,9 +221,8 @@ class Tpclem
                 "</div>";
             // input compétition
             echo "<div>" .
-                "<label for='competition'>Compétition</label>" .
-                "<input type='radio' name='compétition' class='widefat' value=0 checked >Call of Duty" .
-                "<input type='radio' name='compétition' class='widefat' value=1 >Mario Kart" .
+                "<label for='competition'>Compétition nom</label>" .
+                "<input type='text' name='competition' id='competition' class='widefat' required>" .
                 "</div>";
             // input submit
             echo "<div>" .

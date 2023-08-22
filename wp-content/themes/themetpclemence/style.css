@@ -1,5 +1,6 @@
 /* 
 Theme Name: Thème TP WP Clémence
+Text Domain: themetpclemence
 Author: Clémence M
 Description: Thème pour le site Gaming Palace
 Version: 1.0
@@ -66,12 +67,6 @@ img {
     display: flex;
     align-items: center;
     margin: 5px;
-}
-
-.logo-gaming-palace {
-    width: 100px !important;
-    height: auto !important;
-    object-fit: contain;
 }
 
 .search-content {
