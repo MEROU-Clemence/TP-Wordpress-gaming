@@ -38,11 +38,11 @@ class Tpclem
         });
 
         // on va enregistrer le menu client
-        add_action("admin_menu", array($this, "add_menu_client"));
+        add_action("admin_menu", array($this, "add_menu_players"));
     }
 
     // création du menu dans le backoffice pour gérer les clients
-    public function add_menu_client()
+    public function add_menu_players()
     {
         // On a une méthode de WP qui permet de le faire (elle attend 7 arguments)
         // 1er argument: titre de la page
@@ -59,52 +59,46 @@ class Tpclem
 
 
 
-        // CLIENTS SITE GAMING PALACE
+        // MES COMPETITIONS MENU PRINCIPAL
         add_menu_page(
-            "Les clients de Gaming Palace",
-            "Clients GAMING PALACE",
+            "COMPETITIONS",
+            "COMPETITIONS",
             "manage_options",
-            "gaming-client",
-            array($this, "mesClients"),
+            "gaming-competitions",
+            array($this, "mesCompetitions"),
             "dashicons-groups",
             40
         );
 
-        // on va ajouter un sous-menu pour ajouter un client
+        
+        // SOUS MENUS
         // 1er argument: son menu parent (le slug du parent)
         // 2ième argument: titre de la page
         // 3ième argument: titre du menu
         // 4ième argument: capacité de l'utilisateur à voir le menu (ici droit admin)
         // 5ième argument: slug de la page (pour construire l'url)
         // 6ième argument: callback qui va afficher la page
+
+        //JOUEURS (sous-menu de liste)
         add_submenu_page(
-            "gaming-client",
-            "Ajouter un client",
-            "Ajouter",
+            "gaming-competitions",
+            "JOUEURS Liste",
+            "JOUEURS",
             "manage_options",
-            "gaming-client-add",
-            array($this, "mesClients")
+            "gaming-players-list",
+            array($this, "mesPlayers")
         );
 
-        //     // JOUEURS
-        //     add_submenu_page(
-        //         "gaming-client",
-        //         "JOUEURS",
-        //         "JOUEURS",
-        //         "manage_options",
-        //         "gaming-competition-add",
-        //         array($this, "mesClients")
-        //     );
 
-        //     // COMPETITIONS
-        //     add_submenu_page(
-        //         "gaming-client",
-        //         "COMPETITIONS",
-        //         "COMPETITIONS",
-        //         "manage_options",
-        //         "gaming-competition-add",
-        //         array($this, "mesClients")
-        //     );
+        // on va ajouter un sous-menu pour AJOUTER un JOUEUR
+        add_submenu_page(
+            "gaming-competitions",
+            "AJOUTER un joueur",
+            "AJOUTER",
+            "manage_options",
+            "gaming-players-add",
+            array($this, "mesPlayers")
+        );
 
         //     // POULES
         //     add_submenu_page(
@@ -127,26 +121,114 @@ class Tpclem
         //     );
 
     }
+
     // fonction d'affichage pour le menu
-    public function mesClients()
+    public function mesCompetitions()
     {
         // on va instancier la classe Ern_Database_Service
         $db = new Tp_Wp_Clemence_Database_Service();
         // on récupère le titre de la page
         echo "<h2>" . get_admin_page_title() . "</h2>";
         // si la page dans laquelle on est == ern-client (slug de la page), on affiche la liste
-        if ($_GET["page"] == "gaming-client" || $_POST["send"] == "ok" || $_POST["action"] == "delete-client") {
+        if ($_GET["page"] == "gaming-competitions" || $_POST["send"] == "ok" || $_POST["action"] == "delete-player") {
             // on va mettre une seconde condition
             // si les données sont présentes, on exécute la requête.
             if (isset($_POST['send']) && $_POST['send'] == 'ok') {
                 // on exécute la méthode save_client
-                $db->save_client();
+                $db->save_player();
             }
 
             // de la même manière que pour l'insertion, on utilise le flag action pour savoir si on doit supprimer ou pas
-            if (isset($_POST['action']) && $_POST['action'] == 'delete-client') {
+            if (isset($_POST['action']) && $_POST['action'] == 'delete-player') {
                 // on exécute la méthode save_client
-                $db->delete_client($_POST['delete-client']);
+                $db->delete_player($_POST['delete-player']);
+            }
+
+            // on instancie la classe Ern_List
+            $table = new Tp_List();
+            // on appelle la méthode prepate_items
+            $table->prepare_items();
+            // on génère le rendu HTML de la table grâce à la méthode display
+            //  que l'on imbrique dans un formulaire
+            echo "<form method='post'>";
+            $table->display();
+            echo "</form>";
+
+            // on va afficher le formulaire d'ajout de clients
+            // echo "<table class='table-border'>";
+            // echo "<tr>";
+            // echo "<th>Nom</th>";
+            // echo "<th>Prénom</th>";
+            // echo "<th>Email</th>";
+            // echo "<th>Téléphone</th>";
+            // echo "<th>Fidélité</th>";
+            // echo "</th>";
+
+            // // on boucle dans le tableau de clients pour afficher les clients
+            // foreach ($db->findAll() as $client) {
+            //     echo "<tr>";
+            //     echo "<td>" . $client->nom . "</td>";
+            //     echo "<td>" . $client->prenom . "</td>";
+            //     echo "<td>" . $client->email . "</td>";
+            //     echo "<td>" . $client->telephone . "</td>";
+            //     echo "<td>" . (($client->fidelite == 0) ? "Client pas fidèle" : "Client fidèle") . "</td>";
+            //     // ON AJOUTE un bouton pour supprimer le client
+            //     echo "<td>";
+            //     // on utilise un formulaire pour envoyer les données
+            //     echo "<form method='post'>";
+            //     // input hidden qui sert de flag pour le traitement
+            //     echo "<input type='hidden' name='action' value='del'>";
+            //     // input hidden qui contient l'id du client
+            //     echo "<input type='hidden' name='id' value='" . $client->id . "'>";
+            //     // input submit pour envoyer le formulaire
+            //     echo "<input type='submit' value='del' class='button button-danger'>";
+            //     echo "</form>";
+            //     echo "</td>";
+            //     echo "</tr>";
+            // }
+            // // on pense à fermer la table
+            // echo "</table>";
+        } else {
+            // on crée le formulaire d'ajout de client
+            echo "<form method='post'>";
+            // on va ajouter un input de type hidden pour envoyer "ok" lorsqu'on poste le formulaire
+            // cette valeur "ok" nous sert de flag pour faire du traitement dessus
+            echo "<input type='hidden' name='send' value='ok'>";
+            // input nom
+            echo "<div>" .
+                "<label for='nom'>Compétition</label>" .
+                "<input type='text' name='nom' id='nom' class='widefat' required>" .
+                "</div>";
+            // input submit
+            echo "<div>" .
+                "<input type='submit' value='Ajouter' class='button button-primary'>" .
+                "</div>";
+        }
+    }
+
+
+
+
+    // Pour les sous-menus
+    public function mesPlayers()
+    {
+        // on va instancier la classe Ern_Database_Service
+        $db = new Tp_Wp_Clemence_Database_Service();
+        // on récupère le titre de la page
+        echo "<h2>" . get_admin_page_title() . "</h2>";
+        // si la page dans laquelle on est == ern-client (slug de la page), on affiche la liste
+        if ($_GET["page"] == "gaming-players" || $_POST["send"] == "ok" || $_POST["action"] == "delete-player") {
+            // on va mettre une seconde condition
+            // si les données sont présentes, on exécute la requête.
+            if (isset($_POST['send']) && $_POST['send'] == 'ok') {
+                // on exécute la méthode save_client
+                $db->save_player();
+            }
+
+            // de la même manière que pour l'insertion, on utilise le flag action pour savoir si on doit supprimer ou pas
+            if (isset($_POST['action']) && $_POST['action'] == 'delete-player') {
+                // on exécute la méthode save_client
+                $db->delete_player($_POST['delete-player']);
             }
 
             // on instancie la classe Ern_List
@@ -221,8 +303,8 @@ class Tpclem
                 "</div>";
             // input compétition
             echo "<div>" .
-                "<label for='competition'>Compétition nom</label>" .
-                "<input type='text' name='competition' id='competition' class='widefat' required>" .
+                "<label for='competition'>Compétition référence</label>" .
+                "<input type='number' name='competition' id='competition' class='widefat' required>" .
                 "</div>";
             // input submit
             echo "<div>" .

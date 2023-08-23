@@ -19,8 +19,8 @@ class Tp_List extends WP_List_Table
         // pour redéfinir le nom de la table (singulier et au pluriel)
         parent::__construct(
             array(
-                "singular" => __("Client"),
-                "plural" => __("Clients")
+                "singular" => __("Player"),
+                "plural" => __("Players")
             )
         );
         // on instancie notre service
@@ -35,7 +35,7 @@ class Tp_List extends WP_List_Table
         $hidden = $this->get_hidden_columns(); // on ajoute cette variable si on veut cacher les colonnes 
         $sortable = $this->get_sortable_columns(); // on ajoute cette variable si on veut trier des colonnes
         // PAGINATION
-        $perPage = $this->get_items_per_page("clients_per_page", 10); // on va chercher le nombre d'éléments par page
+        $perPage = $this->get_items_per_page("players_per_page", 10); // on va chercher le nombre d'éléments par page
         $currentPage = $this->get_pagenum(); // on va chercher le numéro de la page courante
         // LES DONNÉES
         $data = $this->dal->findAll(); // on va chercher les données dans la base de données
@@ -67,7 +67,7 @@ class Tp_List extends WP_List_Table
             'prenom' => 'Prénom',
             'surnom' => 'Surnom',
             'email' => 'Email',
-            'competition' => 'Compétition'
+            'competition' => 'Compétition numéro'
         ];
         return $columns;
     }
@@ -129,7 +129,7 @@ class Tp_List extends WP_List_Table
         $item = (array) $item; // on cast l'objet en tableau (pour pouvoir utiliser la méthode sprintf)
 
         return sprintf(
-            '<input type="checkbox" name="delete-client[]" value="%s" />',
+            '<input type="checkbox" name="delete-player[]" value="%s" />',
             $item["id"]
         );
     }
@@ -138,7 +138,7 @@ class Tp_List extends WP_List_Table
     public function get_bulk_actions()
     {
         $actions = [
-            "delete-client" => __("Delete")
+            "delete-player" => __("Delete")
         ];
         return $actions;
     }

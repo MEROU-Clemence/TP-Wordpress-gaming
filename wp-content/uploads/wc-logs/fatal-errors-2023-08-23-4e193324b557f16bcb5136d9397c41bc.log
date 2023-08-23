@@ -1,0 +1,60 @@
+2023-08-23T05:06:13+00:00 CRITICAL Uncaught Error: Object of class Tpclem could not be converted to string in /app/wp-includes/functions.php:2185
+Stack trace:
+#0 /app/wp-includes/functions.php(2185): preg_replace('|(?<=.)/+|', '/', Array)
+#1 /app/wp-includes/plugin.php(769): wp_normalize_path(Array)
+#2 /app/wp-admin/includes/plugin.php(1408): plugin_basename(Array)
+#3 /app/wp-content/plugins/plugin-tp-clemence/tp-clemence-plugin.php(82): add_submenu_page('gaming-competit...', 'JOUEURS', 'manage_options', 'gaming-players', Array, 'dashicons-group...', 40)
+#4 /app/wp-includes/class-wp-hook.php(310): Tpclem->add_menu_players('')
+#5 /app/wp-includes/class-wp-hook.php(334): WP_Hook->apply_filters(NULL, Array)
+#6 /app/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#7 /app/wp-admin/includes/menu.php(161): do_action('admin_menu', '')
+#8 /app/wp-admin/menu.php(420): require_once('/app/wp-admin/i...')
+#9 /app/wp-admin/admin.php(158): require('/app/wp-admin/m...')
+#10 {main}
+  thrown in /app/wp-includes/functions.php on line 2185
+
+2023-08-23T05:17:39+00:00 CRITICAL Uncaught Error: Object of class Tpclem could not be converted to string in /app/wp-includes/functions.php:2185
+Stack trace:
+#0 /app/wp-includes/functions.php(2185): preg_replace('|(?<=.)/+|', '/', Array)
+#1 /app/wp-includes/plugin.php(769): wp_normalize_path(Array)
+#2 /app/wp-admin/includes/plugin.php(1408): plugin_basename(Array)
+#3 /app/wp-content/plugins/plugin-tp-clemence/tp-clemence-plugin.php(82): add_submenu_page('gaming-competit...', 'JOUEURS', 'manage_options', 'gaming-players', Array, 'dashicons-group...', 40)
+#4 /app/wp-includes/class-wp-hook.php(310): Tpclem->add_menu_players('')
+#5 /app/wp-includes/class-wp-hook.php(334): WP_Hook->apply_filters(NULL, Array)
+#6 /app/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#7 /app/wp-admin/includes/menu.php(161): do_action('admin_menu', '')
+#8 /app/wp-admin/menu.php(420): require_once('/app/wp-admin/i...')
+#9 /app/wp-admin/admin.php(158): require('/app/wp-admin/m...')
+#10 {main}
+  thrown in /app/wp-includes/functions.php on line 2185
+
+2023-08-23T05:22:14+00:00 CRITICAL Uncaught Error: Object of class Tpclem could not be converted to string in /app/wp-includes/functions.php:2185
+Stack trace:
+#0 /app/wp-includes/functions.php(2185): preg_replace('|(?<=.)/+|', '/', Array)
+#1 /app/wp-includes/plugin.php(769): wp_normalize_path(Array)
+#2 /app/wp-admin/includes/plugin.php(1408): plugin_basename(Array)
+#3 /app/wp-content/plugins/plugin-tp-clemence/tp-clemence-plugin.php(90): add_submenu_page('gaming-competit...', 'JOUEURS', 'manage_options', 'gaming-players-...', Array, 'dashicons-group...', 40)
+#4 /app/wp-includes/class-wp-hook.php(310): Tpclem->add_menu_players('')
+#5 /app/wp-includes/class-wp-hook.php(334): WP_Hook->apply_filters(NULL, Array)
+#6 /app/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#7 /app/wp-admin/includes/menu.php(161): do_action('admin_menu', '')
+#8 /app/wp-admin/menu.php(420): require_once('/app/wp-admin/i...')
+#9 /app/wp-admin/admin.php(158): require('/app/wp-admin/m...')
+#10 {main}
+  thrown in /app/wp-includes/functions.php on line 2185
+
+2023-08-23T05:22:44+00:00 CRITICAL Uncaught Error: Object of class Tpclem could not be converted to string in /app/wp-includes/functions.php:2185
+Stack trace:
+#0 /app/wp-includes/functions.php(2185): preg_replace('|(?<=.)/+|', '/', Array)
+#1 /app/wp-includes/plugin.php(769): wp_normalize_path(Array)
+#2 /app/wp-admin/includes/plugin.php(1408): plugin_basename(Array)
+#3 /app/wp-content/plugins/plugin-tp-clemence/tp-clemence-plugin.php(90): add_submenu_page('gaming-competit...', 'JOUEURS', 'manage_options', 'gaming-players-...', Array, 'dashicons-group...', 40)
+#4 /app/wp-includes/class-wp-hook.php(310): Tpclem->add_menu_players('')
+#5 /app/wp-includes/class-wp-hook.php(334): WP_Hook->apply_filters(NULL, Array)
+#6 /app/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#7 /app/wp-admin/includes/menu.php(161): do_action('admin_menu', '')
+#8 /app/wp-admin/menu.php(420): require_once('/app/wp-admin/i...')
+#9 /app/wp-admin/admin.php(158): require('/app/wp-admin/m...')
+#10 {main}
+  thrown in /app/wp-includes/functions.php on line 2185
+

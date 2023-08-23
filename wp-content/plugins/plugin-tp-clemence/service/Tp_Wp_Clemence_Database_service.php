@@ -18,7 +18,7 @@ class Tp_Wp_Clemence_Database_Service
             id INT AUTO_INCREMENT PRIMARY KEY,
             label VARCHAR(150) NOT NULL)");
 
-        // on regarde si la table continet des lignes (rows)
+        // on regarde si la table contient des lignes (rows)
         $count = $wpdb->get_var("SELECT COUNT(*) FROM {$wpdb->prefix}clem_competition");
 
         // si la table est vide je vais lui insérer des valeurs par défaut
@@ -38,7 +38,7 @@ class Tp_Wp_Clemence_Database_Service
                     competition_id INT(10) NOT NULL,
                     FOREIGN KEY (competition_id) REFERENCES {$wpdb->prefix}clem_competition(id))");
 
-        // on regarde si la table continet des lignes (rows)
+        // on regarde si la table contient des lignes (rows)
         $count = $wpdb->get_var("SELECT COUNT(*) FROM {$wpdb->prefix}clem_player");
 
         // si la table est vide je vais lui insérer des valeurs par défaut
@@ -57,7 +57,15 @@ class Tp_Wp_Clemence_Database_Service
             id INT AUTO_INCREMENT PRIMARY KEY,
             label VARCHAR(150) NOT NULL)");
 
+        // on regarde si la table contient des lignes (rows)
         $count = $wpdb->get_var("SELECT COUNT(*) FROM {$wpdb->prefix}clem_group");
+
+        // si la table est vide je vais lui insérer des valeurs par défaut
+        if ($count == 0) {
+            $wpdb->insert("{$wpdb->prefix}clem_group", [
+                "label" => "Groupe X"
+            ]);
+        }
 
         // POULE
         $wpdb->query("CREATE TABLE IF NOT EXISTS {$wpdb->prefix}clem_pool(
@@ -69,7 +77,7 @@ class Tp_Wp_Clemence_Database_Service
             FOREIGN KEY (groupe_id) REFERENCES {$wpdb->prefix}clem_group(id),
             FOREIGN KEY (player_id) REFERENCES {$wpdb->prefix}clem_player(id))");
 
-        // on regarde si la table continet des lignes (rows)
+        // on regarde si la table continent des lignes (rows)
         $count = $wpdb->get_var("SELECT COUNT(*) FROM {$wpdb->prefix}clem_pool");
 
         // MATCH
@@ -82,6 +90,14 @@ class Tp_Wp_Clemence_Database_Service
             FOREIGN KEY (joueur1_id) REFERENCES {$wpdb->prefix}clem_player(id),
             FOREIGN KEY (joueur2_id) REFERENCES {$wpdb->prefix}clem_player(id))");
 
+        // si la table est vide je vais lui insérer des valeurs par défaut
+        if ($count == 0) {
+            $wpdb->insert("{$wpdb->prefix}clem_match", [
+                "date_match" => "00/00/0000",
+                "is_pool" => false
+            ]);
+        }
+
         // POINTS
         $wpdb->query("CREATE TABLE IF NOT EXISTS {$wpdb->prefix}clem_points(
             id INT AUTO_INCREMENT PRIMARY KEY,
@@ -90,6 +106,14 @@ class Tp_Wp_Clemence_Database_Service
 
         // on regarde si la table continet des lignes (rows)
         $count = $wpdb->get_var("SELECT COUNT(*) FROM {$wpdb->prefix}clem_points");
+
+        // si la table est vide je vais lui insérer des valeurs par défaut
+        if ($count == 0) {
+            $wpdb->insert("{$wpdb->prefix}clem_points", [
+                "label" => "defaite",
+                "points" => 0
+            ]);
+        }
 
         // SCORES
         $wpdb->query("CREATE TABLE IF NOT EXISTS {$wpdb->prefix}clem_scores(
@@ -117,7 +141,7 @@ class Tp_Wp_Clemence_Database_Service
     }
 
     // function pour enregistrer un client
-    public function save_client()
+    public function save_player()
     {
         global $wpdb;
         // dans une variable, on va récupérer les données du formulaire
@@ -126,7 +150,7 @@ class Tp_Wp_Clemence_Database_Service
             "prenom" => $_POST["prenom"],
             "surnom" => $_POST["surnom"],
             "email" => $_POST["email"],
-            "competition" => $_POST["competition"]
+            "competition_id" => $_POST["competition"]
         ];
         // on vérifie que le client n'existe pas déjà
         $row = $wpdb->get_row("SELECT * FROM {$wpdb->prefix}clem_player WHERE email = '" . $data["email"] . "'");
@@ -136,12 +160,12 @@ class Tp_Wp_Clemence_Database_Service
             $wpdb->insert("{$wpdb->prefix}clem_player", $data);
         } else {
             // TODO: faire un message d'erreur
-            wp_die("Le client avec l'adresse e-mail {$data["email"]} existe déjà.");
+            wp_die("Le joueur avec l'adresse e-mail {$data["email"]} existe déjà.");
         }
     }
 
     // fonction qui supprime un ou plusieurs player
-    public function delete_client($ids) // $ids est un tableau d'id
+    public function delete_player($ids) // $ids est un tableau d'id
     {
         global $wpdb;
         // on check si $ids est dans un tableau, sinon, on le met dans un tableau
