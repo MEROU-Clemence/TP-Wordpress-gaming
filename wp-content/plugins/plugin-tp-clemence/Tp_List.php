@@ -78,14 +78,14 @@ class Tp_List_Competitions extends WP_List_Table
     }
 
     // fonction pour le tri
-    public function usort_recorder($a, $b)
+    public function usort_reorder($a, $b)
     {
         // si je passe un paramètre de tri dans l'url
         // sinon on trie par défaut
         $orderBy = (!empty($_GET["orderby"])) ? $_GET["orderby"] : "id";
         // idem pour l'ordre de tri
         $order = (!empty($_GET['order'])) ? $_GET["order"] : "desc";
-        $result  = strcmp($a->orderBy, $b - $orderBy); // on compare les 2  valeurs
+        $result  = strcmp($a->orderBy, $b->$orderBy); // on compare les 2  valeurs
         return ($order === "asc") ? $result : -$result; // on retourne le résultat si asc sinon on inverse
     }
 
@@ -210,14 +210,14 @@ class Tp_List extends WP_List_Table
     }
 
     // fonction pour le tri
-    public function usort_recorder($a, $b)
+    public function usort_reorder($a, $b)
     {
         // si je passe un paramètre de tri dans l'url
         // sinon on trie par défaut
         $orderBy = (!empty($_GET["orderby"])) ? $_GET["orderby"] : "id";
         // idem pour l'ordre de tri
         $order = (!empty($_GET['order'])) ? $_GET["order"] : "desc";
-        $result  = strcmp($a->orderBy, $b - $orderBy); // on compare les 2  valeurs
+        $result  = strcmp($a->orderBy, $b->$orderBy); // on compare les 2  valeurs
         return ($order === "asc") ? $result : -$result; // on retourne le résultat si asc sinon on inverse
     }
 
@@ -345,14 +345,14 @@ class Tp_List_Groupes extends WP_List_Table
     }
 
     // fonction pour le tri
-    public function usort_recorder($a, $b)
+    public function usort_reorder($a, $b)
     {
         // si je passe un paramètre de tri dans l'url
         // sinon on trie par défaut
         $orderBy = (!empty($_GET["orderby"])) ? $_GET["orderby"] : "id";
         // idem pour l'ordre de tri
         $order = (!empty($_GET['order'])) ? $_GET["order"] : "desc";
-        $result  = strcmp($a->orderBy, $b - $orderBy); // on compare les 2  valeurs
+        $result  = strcmp($a->orderBy, $b->$orderBy); // on compare les 2  valeurs
         return ($order === "asc") ? $result : -$result; // on retourne le résultat si asc sinon on inverse
     }
 
@@ -415,8 +415,8 @@ class Tp_List_Poules extends WP_List_Table
         // pour redéfinir le nom de la table (singulier et au pluriel)
         parent::__construct(
             array(
-                "singular" => __("Pool"),
-                "plural" => __("Pools")
+                "singular" => __("Poule"),
+                "plural" => __("Poules")
             )
         );
         // on instancie notre service
@@ -431,7 +431,7 @@ class Tp_List_Poules extends WP_List_Table
         $hidden = $this->get_hidden_columns(); // on ajoute cette variable si on veut cacher les colonnes 
         $sortable = $this->get_sortable_columns(); // on ajoute cette variable si on veut trier des colonnes
         // PAGINATION
-        $perPage = $this->get_items_per_page("pools_per_page", 10); // on va chercher le nombre d'éléments par page
+        $perPage = $this->get_items_per_page("poules_per_page", 10); // on va chercher le nombre d'éléments par page
         $currentPage = $this->get_pagenum(); // on va chercher le numéro de la page courante
         // LES DONNÉES
         $data = $this->dal->findAllPoules(); // on va chercher les données dans la base de données
@@ -457,6 +457,7 @@ class Tp_List_Poules extends WP_List_Table
     public function get_columns()
     {
         $columns = [
+            'id' => 'id',
             'nomcompet' => 'Nom de la Compétition',
             'label' => 'Groupe appartenance',
             'surnom' => 'Pseudo du joueur'
@@ -473,14 +474,14 @@ class Tp_List_Poules extends WP_List_Table
     }
 
     // fonction pour le tri
-    public function usort_recorder($a, $b)
+    public function usort_reorder($a, $b)
     {
         // si je passe un paramètre de tri dans l'url
         // sinon on trie par défaut
         $orderBy = (!empty($_GET["orderby"])) ? $_GET["orderby"] : "id";
         // idem pour l'ordre de tri
         $order = (!empty($_GET['order'])) ? $_GET["order"] : "desc";
-        $result  = strcmp($a->orderBy, $b - $orderBy); // on compare les 2  valeurs
+        $result  = strcmp($a->orderBy, $b->$orderBy); // on compare les 2  valeurs
         return ($order === "asc") ? $result : -$result; // on retourne le résultat si asc sinon on inverse
     }
 
@@ -488,6 +489,7 @@ class Tp_List_Poules extends WP_List_Table
     public function column_default($item, $column_name)
     {
         switch ($column_name) {
+            case 'id';
             case 'nomcompet';
             case 'label';
             case 'surnom':
@@ -502,6 +504,7 @@ class Tp_List_Poules extends WP_List_Table
     public function get_sortable_columns()
     {
         $sortable = [
+            'id' => ['id', true],
             'nomcompet' => ['nomcompet', true],
             'label' => ['label', true],
             'surnom' => ['surnom', true]
@@ -604,14 +607,14 @@ class Tp_List_Matchs extends WP_List_Table
     }
 
     // fonction pour le tri
-    public function usort_recorder($a, $b)
+    public function usort_reorder($a, $b)
     {
         // si je passe un paramètre de tri dans l'url
         // sinon on trie par défaut
         $orderBy = (!empty($_GET["orderby"])) ? $_GET["orderby"] : "id";
         // idem pour l'ordre de tri
         $order = (!empty($_GET['order'])) ? $_GET["order"] : "desc";
-        $result  = strcmp($a->orderBy, $b - $orderBy); // on compare les 2  valeurs
+        $result  = strcmp($a->orderBy, $b->$orderBy); // on compare les 2  valeurs
         return ($order === "asc") ? $result : -$result; // on retourne le résultat si asc sinon on inverse
     }
 
@@ -735,14 +738,14 @@ class Tp_List_Points extends WP_List_Table
     }
 
     // fonction pour le tri
-    public function usort_recorder($a, $b)
+    public function usort_reorder($a, $b)
     {
         // si je passe un paramètre de tri dans l'url
         // sinon on trie par défaut
         $orderBy = (!empty($_GET["orderby"])) ? $_GET["orderby"] : "id";
         // idem pour l'ordre de tri
         $order = (!empty($_GET['order'])) ? $_GET["order"] : "desc";
-        $result  = strcmp($a->orderBy, $b - $orderBy); // on compare les 2  valeurs
+        $result  = strcmp($a->orderBy, $b->$orderBy); // on compare les 2  valeurs
         return ($order === "asc") ? $result : -$result; // on retourne le résultat si asc sinon on inverse
     }
 
@@ -864,14 +867,14 @@ class Tp_List_Scores extends WP_List_Table
     }
 
     // fonction pour le tri
-    public function usort_recorder($a, $b)
+    public function usort_reorder($a, $b)
     {
         // si je passe un paramètre de tri dans l'url
         // sinon on trie par défaut
         $orderBy = (!empty($_GET["orderby"])) ? $_GET["orderby"] : "id";
         // idem pour l'ordre de tri
         $order = (!empty($_GET['order'])) ? $_GET["order"] : "desc";
-        $result  = strcmp($a->orderBy, $b - $orderBy); // on compare les 2  valeurs
+        $result  = strcmp($a->orderBy, $b->$orderBy); // on compare les 2  valeurs
         return ($order === "asc") ? $result : -$result; // on retourne le résultat si asc sinon on inverse
     }
 

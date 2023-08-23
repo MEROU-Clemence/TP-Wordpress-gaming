@@ -32,6 +32,33 @@ class ClemPoules
             echo "<form method='post'>";
             $table->display();
             echo "</form>";
+        } else {
+            // on crée le formulaire d'ajout de client
+            echo "<form method='post'>";
+            // on va ajouter un input de type hidden pour envoyer "ok" lorsqu'on poste le formulaire
+            // cette valeur "ok" nous sert de flag pour faire du traitement dessus
+            echo "<input type='hidden' name='send' value='ok'>";
+            // input nom compete
+            echo "<div>" .
+                "<label for='nomcompet'>Compétition référence (numéro associé à la compétition)</label>" .
+                "<input type='number' name='nomcompete' id='nomcompete' class='widefat' required>" .
+                "</div>";
+            // input nom groupe choisi
+                echo "<div>" .
+                "<label for='label'>Poule choisie (Référence = Groupe A(1) B(2) C(3) D(4) E(5) F(6) G(7) ou H(8))</label>" .
+                "<input type='number' name='label' id='label' class='widefat' required>" .
+                "</div>";
+            // input surnom
+                echo "<div>" .
+                "<label for='surnom'>Ton identifiant de joueur (voir ta référence dans le tableau de joueurs)</label>" .
+                "<input type='text' name='surnom' id='surnom' class='widefat' required>" .
+                "</div>";
+            // input submit
+                echo "<div>" .
+                "<input type='submit' value='Ajouter' class='button button-primary'>" .
+                "</div>";
         }
     }
 }
+
+

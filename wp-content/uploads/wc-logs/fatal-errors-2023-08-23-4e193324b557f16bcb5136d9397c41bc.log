@@ -69,3 +69,30 @@ Stack trace:
 #6 {main}
   thrown in /app/wp-content/plugins/plugin-tp-clemence/tp-clemence-plugin.php on line 51
 
+2023-08-23T19:01:44+00:00 CRITICAL Uncaught Error: Call to undefined method Tp_Wp_Clemence_Database_Service::findAllPlayers() in /app/wp-content/plugins/plugin-tp-clemence/templates/mesPoules.php:55
+Stack trace:
+#0 /app/wp-includes/class-wp-hook.php(310): ClemPoules->mesPoules('')
+#1 /app/wp-includes/class-wp-hook.php(334): WP_Hook->apply_filters('', Array)
+#2 /app/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#3 /app/wp-admin/admin.php(259): do_action('poules_page_gam...')
+#4 {main}
+  thrown in /app/wp-content/plugins/plugin-tp-clemence/templates/mesPoules.php on line 55
+
+2023-08-23T20:27:49+00:00 CRITICAL Uncaught Error: Call to undefined method Tp_Wp_Clemence_Database_Service::findAllPlayers() in /app/wp-content/plugins/plugin-tp-clemence/templates/mesPoules.php:55
+Stack trace:
+#0 /app/wp-includes/class-wp-hook.php(310): ClemPoules->mesPoules('')
+#1 /app/wp-includes/class-wp-hook.php(334): WP_Hook->apply_filters('', Array)
+#2 /app/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#3 /app/wp-admin/admin.php(259): do_action('poules_page_gam...')
+#4 {main}
+  thrown in /app/wp-content/plugins/plugin-tp-clemence/templates/mesPoules.php on line 55
+
+2023-08-23T20:28:37+00:00 CRITICAL Uncaught Error: Call to undefined method Tp_Wp_Clemence_Database_Service::findAllPlayers() in /app/wp-content/plugins/plugin-tp-clemence/templates/mesPoules.php:55
+Stack trace:
+#0 /app/wp-includes/class-wp-hook.php(310): ClemPoules->mesPoules('')
+#1 /app/wp-includes/class-wp-hook.php(334): WP_Hook->apply_filters('', Array)
+#2 /app/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#3 /app/wp-admin/admin.php(259): do_action('poules_page_gam...')
+#4 {main}
+  thrown in /app/wp-content/plugins/plugin-tp-clemence/templates/mesPoules.php on line 55
+

@@ -79,7 +79,7 @@ class Tpclem
         //********MENU PRINCIPAL********
         // MES COMPETITIONS
         add_menu_page(
-            "COMPETITIONS",
+            "NOS COMPETITIONS (REPERTOIRE)",
             "COMPETITIONS",
             "manage_options",
             "gaming-competitions",
@@ -90,7 +90,7 @@ class Tpclem
 
         // MES JOUEURS
         add_menu_page(
-            "JOUEURS",
+            "NOS JOUEURS INSCRITS",
             "JOUEURS",
             "manage_options",
             "gaming-players",
@@ -101,7 +101,7 @@ class Tpclem
 
         // MES GROUPES
         add_menu_page(
-            "GROUPES",
+            "NOS GROUPES (REFERENCES)",
             "GROUPES",
             "manage_options",
             "gaming-groupes",
@@ -112,7 +112,7 @@ class Tpclem
 
         // MES POULES
         add_menu_page(
-            "POULES",
+            "REPARTITIONS DANS LES POULES (Groupes d'appartenance)",
             "POULES",
             "manage_options",
             "gaming-poules",
@@ -166,7 +166,7 @@ class Tpclem
         // on va ajouter un sous-menu pour AJOUTER une COMPETITION
         add_submenu_page(
             "gaming-competitions",
-            "AJOUTER une compétition",
+            "AJOUTER UNE COMPETITION",
             "AJOUTER Compétition",
             "manage_options",
             "gaming-competition-add",
@@ -177,7 +177,7 @@ class Tpclem
         // on va ajouter un sous-menu pour AJOUTER un JOUEUR
         add_submenu_page(
             "gaming-players",
-            "AJOUTER un joueur",
+            "AJOUTER UN NOUVEAU JOUEUR",
             "AJOUTER joueur",
             "manage_options",
             "gaming-players-add",
@@ -187,17 +187,27 @@ class Tpclem
         // on va ajouter un sous-menu pour AJOUTER un GROUPE
         add_submenu_page(
             "gaming-groupes",
-            "AJOUTER un groupe",
+            "AJOUTER UN NOUVEAU GROUPE",
             "AJOUTER groupe",
             "manage_options",
             "gaming-groupes-add",
             array($groupe, "mesGroupes")
         );
 
+         // on va ajouter un sous-menu pour AJOUTER une POULE
+         add_submenu_page(
+            "gaming-poules",
+            "S'AFFILIER A UNE POULE",
+            "AJOUTER poule",
+            "manage_options",
+            "gaming-poules-add",
+            array($poule, "mesPoules")
+        );
+
         // on va ajouter un sous-menu pour AJOUTER un MATCH
         add_submenu_page(
             "gaming-matchs",
-            "AJOUTER un match",
+            "AJOUTER UN MATCH",
             "AJOUTER match",
             "manage_options",
             "gaming-matchs-add",
@@ -207,7 +217,7 @@ class Tpclem
         // on va ajouter un sous-menu pour AJOUTER des POINTS
         add_submenu_page(
             "gaming-points",
-            "AJOUTER des points",
+            "AJOUTER DES POINTS",
             "AJOUTER points",
             "manage_options",
             "gaming-points-add",
@@ -217,7 +227,7 @@ class Tpclem
         // on va ajouter un sous-menu pour AJOUTER des Scores
         add_submenu_page(
             "gaming-scores",
-            "AJOUTER des scores",
+            "AJOUTER DES SCORES",
             "AJOUTER scores",
             "manage_options",
             "gaming-scores-add",

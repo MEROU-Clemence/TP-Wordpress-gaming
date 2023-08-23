@@ -299,11 +299,11 @@ class Tp_Wp_Clemence_Database_Service
 
 
     //*********POULES*********
-    // fonction qui va récupérer tous les joueurs
+    // fonction qui va récupérer toutes les poules
     public function findAllPoules()
     {
         global $wpdb;
-        $res = $wpdb->get_results("SELECT a.id c.label AS nomcompet, g.label, p.surnom
+        $res = $wpdb->get_results("SELECT a.id, c.label AS nomcompet, g.label, p.surnom
         FROM {$wpdb->prefix}clem_pool AS a
         INNER JOIN {$wpdb->prefix}clem_competition AS c
         ON a.competition_id = c.id
@@ -322,21 +322,29 @@ class Tp_Wp_Clemence_Database_Service
         global $wpdb;
         // dans une variable, on va récupérer les données du formulaire
         $data = [
-            "competition_id" => $_POST["competition"],
-            "group_id" => $_POST["group"],
-            "player_id" => $_POST["player"]
+            "competition_id" => $_POST["nomcompete"],
+            "group_id" => $_POST["label"],
+            "player_id" => $_POST["surnom"]
         ];
         // on vérifie que la poule n'existe pas déjà
-        $row = $wpdb->get_row("SELECT * FROM {$wpdb->prefix}clem_pool WHERE group_id = '" . $data["group_id"] . "'");
-        if (is_null($row)) {
-            // si le client n'existe pas, on l'insère dans la table
-            // méthode insert: 1er paramètre: le nom de la table, 2ème paramètre: les données à insérer(array)
-            $wpdb->insert("{$wpdb->prefix}clem_pool", $data);
+        $row = $wpdb->get_row("SELECT * FROM {$wpdb->prefix}clem_pool WHERE label = '" . $data["label"] . "'");
+        $limitCountGroupeLabel = $wpdb->get_var("SELECT COUNT(*) FROM {$wpdb->prefix}clem_pool WHERE label = '" . $data["label"] . "'");
+
+        if ($limitCountGroupeLabel < 4) {
+            if (is_null($row)) {
+                // si la poule n'existe pas, on l'insère dans la table
+                $wpdb->insert("{$wpdb->prefix}clem_pool", $data);
+            } else {
+                // Message d'erreur si existe déjà
+                wp_die("La poule avec le nom {$data["label"]} existe déjà.");
+            }
         } else {
-            // Message d'erreur si existe déjà
-            wp_die("La poule avec le nom de groupe {$data["group_id"]} existe déjà.");
+            // Le nombre maximum d'insertions a été atteint
+            wp_die("La poule est complète");
         }
     }
+       
+    
 
     // fonction qui supprime un ou plusieurs poules
     public function delete_poule($ids) // $ids est un tableau d'id
