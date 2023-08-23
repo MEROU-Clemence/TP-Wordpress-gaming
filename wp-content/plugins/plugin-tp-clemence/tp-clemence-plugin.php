@@ -26,7 +26,7 @@ class Tpclem
         register_activation_hook(__FILE__, array("Tp_Wp_Clemence_Database_Service", "create_db"));
 
         // désactivation du plugin: vidange des tables à la désactivation du plugin
-        register_deactivation_hook(__FILE__, array("Tp_Wp_Clemence_Database_Service", "empty_db"));
+        // register_deactivation_hook(__FILE__, array("Tp_Wp_Clemence_Database_Service", "empty_db"));
 
         // désinstallation du plugin: suppression des tables à la désinstallation du plugin
         // ATTENTION LE PLUGIN SERA SUPPRIMÉ DU CODE SOURCE
@@ -70,7 +70,7 @@ class Tpclem
             40
         );
 
-        
+
         // SOUS MENUS
         // 1er argument: son menu parent (le slug du parent)
         // 2ième argument: titre de la page
