@@ -13,10 +13,20 @@ require_once plugin_dir_path(__FILE__) . "widget/Tp_Wp_Clemence_Widget.php";
 require_once plugin_dir_path(__FILE__) . "service/Tp_Wp_Clemence_Database_service.php";
 // on importe notre fichier List
 require_once plugin_dir_path(__FILE__) . "Tp_List.php";
+// Inclure les fichier à partir du dossier template
+include plugin_dir_path(__FILE__) . "templates/mesPlayers.php";
+include plugin_dir_path(__FILE__) . "templates/mesCompetitions.php";
+include plugin_dir_path(__FILE__) . "templates/mesGroupes.php";
+include plugin_dir_path(__FILE__) . "templates/mesPoules.php";
+include plugin_dir_path(__FILE__) . "templates/mesMatchs.php";
+include plugin_dir_path(__FILE__) . "templates/mesPoints.php";
+include plugin_dir_path(__FILE__) . "templates/mesScores.php";
+
 
 // création de la classe du plugin
 class Tpclem
 {
+
     // appelle du constructor 
     public function __construct()
     { // fonction qui se charge de l'instance de la classe (=tout ce qu'on met dans le construct sera appelé apres avec des new Ern quelque part d'autre)
@@ -44,6 +54,13 @@ class Tpclem
     // création du menu dans le backoffice pour gérer les clients
     public function add_menu_players()
     {
+        $player = new ClemPlayers();
+        $competition = new ClemCompetitions();
+        $groupe = new ClemGroupes();
+        $poule = new ClemPoules();
+        $match = new ClemMatchs();
+        $point = new ClemPoints();
+        $score = new ClemScores();
         // On a une méthode de WP qui permet de le faire (elle attend 7 arguments)
         // 1er argument: titre de la page
         // 2ième argument: titre du menu
@@ -59,19 +76,86 @@ class Tpclem
 
 
 
-        // MES COMPETITIONS MENU PRINCIPAL
+        //********MENU PRINCIPAL********
+        // MES COMPETITIONS
         add_menu_page(
             "COMPETITIONS",
             "COMPETITIONS",
             "manage_options",
             "gaming-competitions",
-            array($this, "mesCompetitions"),
+            array($competition, "mesCompetitions"),
             "dashicons-groups",
             40
         );
 
+        // MES JOUEURS
+        add_menu_page(
+            "JOUEURS",
+            "JOUEURS",
+            "manage_options",
+            "gaming-players",
+            array($player, "mesPlayers"),
+            "dashicons-groups",
+            41
+        );
 
-        // SOUS MENUS
+        // MES GROUPES
+        add_menu_page(
+            "GROUPES",
+            "GROUPES",
+            "manage_options",
+            "gaming-groupes",
+            array($groupe, "mesGroupes"),
+            "dashicons-groups",
+            42
+        );
+
+        // MES POULES
+        add_menu_page(
+            "POULES",
+            "POULES",
+            "manage_options",
+            "gaming-poules",
+            array($poule, "mesPoules"),
+            "dashicons-groups",
+            43
+        );
+
+        // MES MATCHS
+        add_menu_page(
+            "MATCHS",
+            "MATCHS",
+            "manage_options",
+            "gaming-matchs",
+            array($match, "mesMatchs"),
+            "dashicons-groups",
+            44
+        );
+
+        // MES POINTS
+        add_menu_page(
+            "POINTS",
+            "POINTS",
+            "manage_options",
+            "gaming-points",
+            array($point, "mesPoints"),
+            "dashicons-groups",
+            44
+        );
+
+        // MES SCORES
+        add_menu_page(
+            "SCORES",
+            "SCORES",
+            "manage_options",
+            "gaming-scores",
+            array($score, "mesScores"),
+            "dashicons-groups",
+            45
+        );
+
+        //*********SOUS MENUS********
+
         // 1er argument: son menu parent (le slug du parent)
         // 2ième argument: titre de la page
         // 3ième argument: titre du menu
@@ -79,239 +163,68 @@ class Tpclem
         // 5ième argument: slug de la page (pour construire l'url)
         // 6ième argument: callback qui va afficher la page
 
-        //JOUEURS (sous-menu de liste)
+        // on va ajouter un sous-menu pour AJOUTER une COMPETITION
         add_submenu_page(
             "gaming-competitions",
-            "JOUEURS Liste",
-            "JOUEURS",
+            "AJOUTER une compétition",
+            "AJOUTER Compétition",
             "manage_options",
-            "gaming-players-list",
-            array($this, "mesPlayers")
+            "gaming-competition-add",
+            array($competition, "mesCompetitions")
         );
 
 
         // on va ajouter un sous-menu pour AJOUTER un JOUEUR
         add_submenu_page(
-            "gaming-competitions",
+            "gaming-players",
             "AJOUTER un joueur",
-            "AJOUTER",
+            "AJOUTER joueur",
             "manage_options",
             "gaming-players-add",
-            array($this, "mesPlayers")
+            array($player, "mesPlayers")
         );
 
-        //     // POULES
-        //     add_submenu_page(
-        //         "gaming-client",
-        //         "POULES",
-        //         "POULES",
-        //         "manage_options",
-        //         "gaming-competition-add",
-        //         array($this, "mesClients")
-        //     );
+        // on va ajouter un sous-menu pour AJOUTER un GROUPE
+        add_submenu_page(
+            "gaming-groupes",
+            "AJOUTER un groupe",
+            "AJOUTER groupe",
+            "manage_options",
+            "gaming-groupes-add",
+            array($groupe, "mesGroupes")
+        );
 
-        //     // RESULTATS
-        //     add_submenu_page(
-        //         "gaming-client",
-        //         "RESULTATS",
-        //         "RESULTATS",
-        //         "manage_options",
-        //         "gaming-competition-add",
-        //         array($this, "mesClients")
-        //     );
+        // on va ajouter un sous-menu pour AJOUTER un MATCH
+        add_submenu_page(
+            "gaming-matchs",
+            "AJOUTER un match",
+            "AJOUTER match",
+            "manage_options",
+            "gaming-matchs-add",
+            array($match, "mesMatchs")
+        );
 
-    }
+        // on va ajouter un sous-menu pour AJOUTER des POINTS
+        add_submenu_page(
+            "gaming-points",
+            "AJOUTER des points",
+            "AJOUTER points",
+            "manage_options",
+            "gaming-points-add",
+            array($point, "mesPoints")
+        );
 
-    // fonction d'affichage pour le menu
-    public function mesCompetitions()
-    {
-        // on va instancier la classe Ern_Database_Service
-        $db = new Tp_Wp_Clemence_Database_Service();
-        // on récupère le titre de la page
-        echo "<h2>" . get_admin_page_title() . "</h2>";
-        // si la page dans laquelle on est == ern-client (slug de la page), on affiche la liste
-        if ($_GET["page"] == "gaming-competitions" || $_POST["send"] == "ok" || $_POST["action"] == "delete-player") {
-            // on va mettre une seconde condition
-            // si les données sont présentes, on exécute la requête.
-            if (isset($_POST['send']) && $_POST['send'] == 'ok') {
-                // on exécute la méthode save_client
-                $db->save_player();
-            }
-
-            // de la même manière que pour l'insertion, on utilise le flag action pour savoir si on doit supprimer ou pas
-            if (isset($_POST['action']) && $_POST['action'] == 'delete-player') {
-                // on exécute la méthode save_client
-                $db->delete_player($_POST['delete-player']);
-            }
-
-            // on instancie la classe Ern_List
-            $table = new Tp_List();
-            // on appelle la méthode prepate_items
-            $table->prepare_items();
-            // on génère le rendu HTML de la table grâce à la méthode display
-            //  que l'on imbrique dans un formulaire
-            echo "<form method='post'>";
-            $table->display();
-            echo "</form>";
-
-            // on va afficher le formulaire d'ajout de clients
-            // echo "<table class='table-border'>";
-            // echo "<tr>";
-            // echo "<th>Nom</th>";
-            // echo "<th>Prénom</th>";
-            // echo "<th>Email</th>";
-            // echo "<th>Téléphone</th>";
-            // echo "<th>Fidélité</th>";
-            // echo "</th>";
-
-            // // on boucle dans le tableau de clients pour afficher les clients
-            // foreach ($db->findAll() as $client) {
-            //     echo "<tr>";
-            //     echo "<td>" . $client->nom . "</td>";
-            //     echo "<td>" . $client->prenom . "</td>";
-            //     echo "<td>" . $client->email . "</td>";
-            //     echo "<td>" . $client->telephone . "</td>";
-            //     echo "<td>" . (($client->fidelite == 0) ? "Client pas fidèle" : "Client fidèle") . "</td>";
-            //     // ON AJOUTE un bouton pour supprimer le client
-            //     echo "<td>";
-            //     // on utilise un formulaire pour envoyer les données
-            //     echo "<form method='post'>";
-            //     // input hidden qui sert de flag pour le traitement
-            //     echo "<input type='hidden' name='action' value='del'>";
-            //     // input hidden qui contient l'id du client
-            //     echo "<input type='hidden' name='id' value='" . $client->id . "'>";
-            //     // input submit pour envoyer le formulaire
-            //     echo "<input type='submit' value='del' class='button button-danger'>";
-            //     echo "</form>";
-            //     echo "</td>";
-            //     echo "</tr>";
-            // }
-            // // on pense à fermer la table
-            // echo "</table>";
-        } else {
-            // on crée le formulaire d'ajout de client
-            echo "<form method='post'>";
-            // on va ajouter un input de type hidden pour envoyer "ok" lorsqu'on poste le formulaire
-            // cette valeur "ok" nous sert de flag pour faire du traitement dessus
-            echo "<input type='hidden' name='send' value='ok'>";
-            // input nom
-            echo "<div>" .
-                "<label for='nom'>Compétition</label>" .
-                "<input type='text' name='nom' id='nom' class='widefat' required>" .
-                "</div>";
-            // input submit
-            echo "<div>" .
-                "<input type='submit' value='Ajouter' class='button button-primary'>" .
-                "</div>";
-        }
-    }
-
-
-
-
-    // Pour les sous-menus
-    public function mesPlayers()
-    {
-        // on va instancier la classe Ern_Database_Service
-        $db = new Tp_Wp_Clemence_Database_Service();
-        // on récupère le titre de la page
-        echo "<h2>" . get_admin_page_title() . "</h2>";
-        // si la page dans laquelle on est == ern-client (slug de la page), on affiche la liste
-        if ($_GET["page"] == "gaming-players" || $_POST["send"] == "ok" || $_POST["action"] == "delete-player") {
-            // on va mettre une seconde condition
-            // si les données sont présentes, on exécute la requête.
-            if (isset($_POST['send']) && $_POST['send'] == 'ok') {
-                // on exécute la méthode save_client
-                $db->save_player();
-            }
-
-            // de la même manière que pour l'insertion, on utilise le flag action pour savoir si on doit supprimer ou pas
-            if (isset($_POST['action']) && $_POST['action'] == 'delete-player') {
-                // on exécute la méthode save_client
-                $db->delete_player($_POST['delete-player']);
-            }
-
-            // on instancie la classe Ern_List
-            $table = new Tp_List();
-            // on appelle la méthode prepate_items
-            $table->prepare_items();
-            // on génère le rendu HTML de la table grâce à la méthode display
-            //  que l'on imbrique dans un formulaire
-            echo "<form method='post'>";
-            $table->display();
-            echo "</form>";
-
-            // on va afficher le formulaire d'ajout de clients
-            // echo "<table class='table-border'>";
-            // echo "<tr>";
-            // echo "<th>Nom</th>";
-            // echo "<th>Prénom</th>";
-            // echo "<th>Email</th>";
-            // echo "<th>Téléphone</th>";
-            // echo "<th>Fidélité</th>";
-            // echo "</th>";
-
-            // // on boucle dans le tableau de clients pour afficher les clients
-            // foreach ($db->findAll() as $client) {
-            //     echo "<tr>";
-            //     echo "<td>" . $client->nom . "</td>";
-            //     echo "<td>" . $client->prenom . "</td>";
-            //     echo "<td>" . $client->email . "</td>";
-            //     echo "<td>" . $client->telephone . "</td>";
-            //     echo "<td>" . (($client->fidelite == 0) ? "Client pas fidèle" : "Client fidèle") . "</td>";
-            //     // ON AJOUTE un bouton pour supprimer le client
-            //     echo "<td>";
-            //     // on utilise un formulaire pour envoyer les données
-            //     echo "<form method='post'>";
-            //     // input hidden qui sert de flag pour le traitement
-            //     echo "<input type='hidden' name='action' value='del'>";
-            //     // input hidden qui contient l'id du client
-            //     echo "<input type='hidden' name='id' value='" . $client->id . "'>";
-            //     // input submit pour envoyer le formulaire
-            //     echo "<input type='submit' value='del' class='button button-danger'>";
-            //     echo "</form>";
-            //     echo "</td>";
-            //     echo "</tr>";
-            // }
-            // // on pense à fermer la table
-            // echo "</table>";
-        } else {
-            // on crée le formulaire d'ajout de client
-            echo "<form method='post'>";
-            // on va ajouter un input de type hidden pour envoyer "ok" lorsqu'on poste le formulaire
-            // cette valeur "ok" nous sert de flag pour faire du traitement dessus
-            echo "<input type='hidden' name='send' value='ok'>";
-            // input nom
-            echo "<div>" .
-                "<label for='nom'>Nom</label>" .
-                "<input type='text' name='nom' id='nom' class='widefat' required>" .
-                "</div>";
-            // input prenom
-            echo "<div>" .
-                "<label for='prenom'>Prénom</label>" .
-                "<input type='text' name='prenom' id='prenom' class='widefat' required>" .
-                "</div>";
-            // input surnom
-            echo "<div>" .
-                "<label for='surnom'>Surnom</label>" .
-                "<input type='text' name='surnom' id='surnom' class='widefat' required>" .
-                "</div>";
-            // input email
-            echo "<div>" .
-                "<label for='email'>E-mail</label>" .
-                "<input type='email' name='email' id='email' class='widefat' required>" .
-                "</div>";
-            // input compétition
-            echo "<div>" .
-                "<label for='competition'>Compétition référence</label>" .
-                "<input type='number' name='competition' id='competition' class='widefat' required>" .
-                "</div>";
-            // input submit
-            echo "<div>" .
-                "<input type='submit' value='Ajouter' class='button button-primary'>" .
-                "</div>";
-        }
+        // on va ajouter un sous-menu pour AJOUTER des Scores
+        add_submenu_page(
+            "gaming-scores",
+            "AJOUTER des scores",
+            "AJOUTER scores",
+            "manage_options",
+            "gaming-scores-add",
+            array($score, "mesScores")
+        );
     }
 }
+
 
 new Tpclem(); // on instancie la class

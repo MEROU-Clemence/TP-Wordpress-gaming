@@ -58,3 +58,14 @@ Stack trace:
 #10 {main}
   thrown in /app/wp-includes/functions.php on line 2185
 
+2023-08-23T09:07:52+00:00 CRITICAL Uncaught Error: Class 'ClemCompetitions' not found in /app/wp-content/plugins/plugin-tp-clemence/tp-clemence-plugin.php:51
+Stack trace:
+#0 /app/wp-includes/class-wp-hook.php(310): Tpclem->add_menu_players('')
+#1 /app/wp-includes/class-wp-hook.php(334): WP_Hook->apply_filters(NULL, Array)
+#2 /app/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#3 /app/wp-admin/includes/menu.php(161): do_action('admin_menu', '')
+#4 /app/wp-admin/menu.php(420): require_once('/app/wp-admin/i...')
+#5 /app/wp-admin/admin.php(158): require('/app/wp-admin/m...')
+#6 {main}
+  thrown in /app/wp-content/plugins/plugin-tp-clemence/tp-clemence-plugin.php on line 51
+
