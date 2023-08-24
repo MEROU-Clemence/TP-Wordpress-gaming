@@ -43,7 +43,7 @@ class ClemPoules
                 "<label for='nomcompet'>Compétition choisie</label><br>" .
                 // requête pour obtenir la liste des compétitions
                 $compets = $db->findAllCompetitions();
-            echo "<select name='nomcompet' id='nomcompete'>";
+            echo "<select name='nomcompet' id='nomcompet'>";
             foreach ($compets as $compet) {
                 echo "<option value='" . $compet->id . "'>" . $compet->label . "</option>";
             }
@@ -63,7 +63,7 @@ class ClemPoules
             // input ton surnom
             echo "<div>" .
                 "<label for='surnom'>Ton pseudo</label><br>" .
-                // requête pour obtenir la liste des groupes
+                // requête pour obtenir la liste des joueurs
                 $pseudos = $db->findAll();
             echo "<select name='surnom' id='surnom'>";
             foreach ($pseudos as $pseudo) {

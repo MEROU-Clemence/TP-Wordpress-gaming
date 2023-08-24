@@ -94,7 +94,6 @@ class Tp_List_Competitions extends WP_List_Table
     {
         switch ($column_name) {
             case 'id';
-            case 'nom';
             case 'label':
                 return $item->$column_name;
                 break;
@@ -361,7 +360,6 @@ class Tp_List_Groupes extends WP_List_Table
     {
         switch ($column_name) {
             case 'id';
-            case 'nom';
             case 'label':
                 return $item->$column_name;
                 break;
@@ -457,6 +455,7 @@ class Tp_List_Poules extends WP_List_Table
     public function get_columns()
     {
         $columns = [
+            'cb' => '<input type="checkbox" />',
             'id' => 'id',
             'nomcompet' => 'Nom de la Compétition',
             'label' => 'Groupe appartenance',
@@ -518,7 +517,7 @@ class Tp_List_Poules extends WP_List_Table
         $item = (array) $item; // on cast l'objet en tableau (pour pouvoir utiliser la méthode sprintf)
 
         return sprintf(
-            '<input type="checkbox" name="delete-pool[]" value="%s" />',
+            '<input type="checkbox" name="delete-poule[]" value="%s" />',
             $item["id"]
         );
     }
@@ -527,7 +526,7 @@ class Tp_List_Poules extends WP_List_Table
     public function get_bulk_actions()
     {
         $actions = [
-            "delete-pool" => __("Delete")
+            "delete-poule" => __("Delete")
         ];
         return $actions;
     }
@@ -590,6 +589,7 @@ class Tp_List_Matchs extends WP_List_Table
     public function get_columns()
     {
         $columns = [
+            'cb' => '<input type="checkbox" />',
             'joueur1' => 'Joueur 1',
             'joueur2' => 'Joueur 2',
             'date' => 'Date du match',
@@ -723,6 +723,7 @@ class Tp_List_Points extends WP_List_Table
     public function get_columns()
     {
         $columns = [
+            'cb' => '<input type="checkbox" />',
             'label' => 'Résultat',
             'points' => 'Points'
         ];
@@ -850,6 +851,7 @@ class Tp_List_Scores extends WP_List_Table
     public function get_columns()
     {
         $columns = [
+            'cb' => '<input type="checkbox" />',
             'nomresultat' => 'Résultat',
             'points' => 'Points',
             'surnom' => 'Joueur',

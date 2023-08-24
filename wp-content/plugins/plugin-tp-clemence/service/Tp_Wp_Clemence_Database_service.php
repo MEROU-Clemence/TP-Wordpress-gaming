@@ -102,7 +102,7 @@ class Tp_Wp_Clemence_Database_Service
             label VARCHAR(150) NOT NULL,
             points int(10) NOT NULL)");
 
-        // on regarde si la table continet des lignes (rows)
+        // on regarde si la table contient des lignes (rows)
         $count = $wpdb->get_var("SELECT COUNT(*) FROM {$wpdb->prefix}clem_points");
 
         // si la table est vide je vais lui insérer des valeurs par défaut
@@ -326,21 +326,31 @@ class Tp_Wp_Clemence_Database_Service
             "group_id" => $_POST["label"],
             "player_id" => $_POST["surnom"]
         ];
-        // on vérifie que la poule n'existe pas déjà
-        $row = $wpdb->get_row("SELECT * FROM {$wpdb->prefix}clem_pool WHERE label = '" . $data["label"] . "'");
-        $limitCountGroupeLabel = $wpdb->get_var("SELECT COUNT(*) FROM {$wpdb->prefix}clem_pool WHERE label = '" . $data["label"] . "'");
+        
+        // on vérifie que le joueur n'est pas déjà répertorié dans une compétition
+        // puis on vérifie que la poule dans laquelle il veut s'inscrire n'est pas complète encore
+        $row = $wpdb->get_row("SELECT * FROM {$wpdb->prefix}clem_pool WHERE player_id = '" . $data["player_id"] . "'");
 
-        if ($limitCountGroupeLabel < 4) {
-            if (is_null($row)) {
-                // si la poule n'existe pas, on l'insère dans la table
+        if (is_null($row)) {
+            // si le joueur n'existe pas, on continue à vérifier la complétude de la poule
+            $limitCountGroupeLabel = $wpdb->get_var(
+                $wpdb->prepare(
+                    "SELECT COUNT(*) FROM {$wpdb->prefix}clem_pool WHERE group_id = %d AND competition_id = %d",
+                    $data["group_id"],
+                    $data["competition_id"]
+                )
+            );
+
+            if ($limitCountGroupeLabel < 4) {
+                // si la poule n'est pas complète, on insère les données
                 $wpdb->insert("{$wpdb->prefix}clem_pool", $data);
             } else {
-                // Message d'erreur si existe déjà
-                wp_die("La poule avec le nom {$data["label"]} existe déjà.");
+                // Le nombre maximum d'insertions dans la poule a été atteint
+                wp_die("Cette poule est déjà complète pour la compétition.");
             }
         } else {
-            // Le nombre maximum d'insertions a été atteint
-            wp_die("La poule est complète");
+            // Message d'erreur si le joueur est déjà affilié à une poule
+            wp_die("Ce joueur est déjà affilié à une poule.");
         }
     }
 

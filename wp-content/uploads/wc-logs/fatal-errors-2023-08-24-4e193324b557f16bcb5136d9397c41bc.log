@@ -7,3 +7,33 @@ Stack trace:
 #4 {main}
   thrown in /app/wp-content/plugins/plugin-tp-clemence/templates/mesPoints.php on line 27
 
+2023-08-24T20:06:18+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function Tp_Wp_Clemence_Database_Service::findAllPlayersByCompetition(), 0 passed in /app/wp-content/plugins/plugin-tp-clemence/templates/mesPoules.php on line 67 and exactly 1 expected in /app/wp-content/plugins/plugin-tp-clemence/service/Tp_Wp_Clemence_Database_service.php:244
+Stack trace:
+#0 /app/wp-content/plugins/plugin-tp-clemence/templates/mesPoules.php(67): Tp_Wp_Clemence_Database_Service->findAllPlayersByCompetition()
+#1 /app/wp-includes/class-wp-hook.php(310): ClemPoules->mesPoules('')
+#2 /app/wp-includes/class-wp-hook.php(334): WP_Hook->apply_filters('', Array)
+#3 /app/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#4 /app/wp-admin/admin.php(259): do_action('poules_page_gam...')
+#5 {main}
+  thrown in /app/wp-content/plugins/plugin-tp-clemence/service/Tp_Wp_Clemence_Database_service.php on line 244
+
+2023-08-24T20:07:18+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function Tp_Wp_Clemence_Database_Service::findAllPlayersByCompetition(), 0 passed in /app/wp-content/plugins/plugin-tp-clemence/templates/mesPoules.php on line 67 and exactly 1 expected in /app/wp-content/plugins/plugin-tp-clemence/service/Tp_Wp_Clemence_Database_service.php:244
+Stack trace:
+#0 /app/wp-content/plugins/plugin-tp-clemence/templates/mesPoules.php(67): Tp_Wp_Clemence_Database_Service->findAllPlayersByCompetition()
+#1 /app/wp-includes/class-wp-hook.php(310): ClemPoules->mesPoules('')
+#2 /app/wp-includes/class-wp-hook.php(334): WP_Hook->apply_filters('', Array)
+#3 /app/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#4 /app/wp-admin/admin.php(259): do_action('poules_page_gam...')
+#5 {main}
+  thrown in /app/wp-content/plugins/plugin-tp-clemence/service/Tp_Wp_Clemence_Database_service.php on line 244
+
+2023-08-24T20:11:44+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function Tp_Wp_Clemence_Database_Service::findAllPlayersByCompetition(), 0 passed in /app/wp-content/plugins/plugin-tp-clemence/templates/mesPoules.php on line 67 and exactly 1 expected in /app/wp-content/plugins/plugin-tp-clemence/service/Tp_Wp_Clemence_Database_service.php:244
+Stack trace:
+#0 /app/wp-content/plugins/plugin-tp-clemence/templates/mesPoules.php(67): Tp_Wp_Clemence_Database_Service->findAllPlayersByCompetition()
+#1 /app/wp-includes/class-wp-hook.php(310): ClemPoules->mesPoules('')
+#2 /app/wp-includes/class-wp-hook.php(334): WP_Hook->apply_filters('', Array)
+#3 /app/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#4 /app/wp-admin/admin.php(259): do_action('poules_page_gam...')
+#5 {main}
+  thrown in /app/wp-content/plugins/plugin-tp-clemence/service/Tp_Wp_Clemence_Database_service.php on line 244
+
