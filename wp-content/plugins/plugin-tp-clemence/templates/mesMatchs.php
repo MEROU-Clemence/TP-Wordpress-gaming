@@ -40,23 +40,36 @@ class ClemMatchs
             echo "<input type='hidden' name='send' value='ok'>";
             // input joueur 1
             echo "<div>" .
-                "<label for='joueur1'>Joueur 1</label>" .
-                "<input type='text' name='joueur1' id='joueur1' class='widefat' required>" .
-                "</div>";
+                "<label for='joueur1'>Joueur 1</label><br>" .
+                // requête pour obtenir la liste des compétitions
+                $joueurs = $db->findAll();
+            echo "<select name='joueur1' id='joueur1'>";
+            foreach ($joueurs as $joueur) {
+                echo "<option value='" . $joueur->id . "'>" . $joueur->surnom . "</option>";
+            }
+            echo "</select>";
+            echo "</div><hr>";
             // input joueur 2
             echo "<div>" .
-                "<label for='joueur2'>Joueur 2</label>" .
-                "<input type='text' name='joueur2' id='joueur2' class='widefat' required>" .
-                "</div>";
+                "<label for='joueur2'>Joueur 2</label><br>" .
+                // requête pour obtenir la liste des compétitions
+                $joueurs = $db->findAll();
+            echo "<select name='joueur2' id='joueur2'>";
+            foreach ($joueurs as $joueur) {
+                echo "<option value='" . $joueur->id . "'>" . $joueur->surnom . "</option>";
+            }
+            echo "</select>";
+            echo "</div><hr>";
             // input date match
             echo "<div>" .
-                "<label for='datematch'>Date matchs</label>" .
-                "<input type='text' name='datematch' id='datematch' class='widefat' required>" .
+                "<label for='date'>Date match format 00/00/0000</label>" .
+                "<input type='text' name='date' id='date' class='widefat' required>" .
                 "</div>";
             // input poule
             echo "<div>" .
-                "<label for='ispool'>Poule</label>" .
-                "<input type='text' name='ispool' id='ispool' class='widefat' required>" .
+                "<label for='ispool'>Poule &nbsp;</label>" .
+                "<input type='radio' name='ispool' class='widefat' value=0 checked >non" .
+                "<input type='radio' name='ispool' class='widefat' value=1 >oui" .
                 "</div>";
             // input submit
             echo "<div>" .

@@ -38,27 +38,43 @@ class ClemPoules
             // on va ajouter un input de type hidden pour envoyer "ok" lorsqu'on poste le formulaire
             // cette valeur "ok" nous sert de flag pour faire du traitement dessus
             echo "<input type='hidden' name='send' value='ok'>";
-            // input nom compete
+            // input compétition
             echo "<div>" .
-                "<label for='nomcompet'>Compétition référence (numéro associé à la compétition)</label>" .
-                "<input type='number' name='nomcompete' id='nomcompete' class='widefat' required>" .
-                "</div>";
-            // input nom groupe choisi
-                echo "<div>" .
-                "<label for='label'>Poule choisie (Référence = Groupe A(1) B(2) C(3) D(4) E(5) F(6) G(7) ou H(8))</label>" .
-                "<input type='number' name='label' id='label' class='widefat' required>" .
-                "</div>";
-            // input surnom
-                echo "<div>" .
-                "<label for='surnom'>Ton identifiant de joueur (voir ta référence dans le tableau de joueurs)</label>" .
-                "<input type='text' name='surnom' id='surnom' class='widefat' required>" .
-                "</div>";
+                "<label for='nomcompet'>Compétition choisie</label><br>" .
+                // requête pour obtenir la liste des compétitions
+                $compets = $db->findAllCompetitions();
+            echo "<select name='nomcompet' id='nomcompete'>";
+            foreach ($compets as $compet) {
+                echo "<option value='" . $compet->id . "'>" . $compet->label . "</option>";
+            }
+            echo "</select>";
+            echo "</div><hr>";
+            // input nom poule choisie
+            echo "<div>" .
+                "<label for='label'>Poule choisie</label><br>" .
+                // requête pour obtenir la liste des groupes
+                $groups = $db->findAllGroupes();
+            echo "<select name='label' id='label'>";
+            foreach ($groups as $group) {
+                echo "<option value='" . $group->id . "'>" . $group->label . "</option>";
+            }
+            echo "</select>";
+            echo "</div><hr>";
+            // input ton surnom
+            echo "<div>" .
+                "<label for='surnom'>Ton pseudo</label><br>" .
+                // requête pour obtenir la liste des groupes
+                $pseudos = $db->findAll();
+            echo "<select name='surnom' id='surnom'>";
+            foreach ($pseudos as $pseudo) {
+                echo "<option value='" . $pseudo->id . "'>" . $pseudo->surnom . "</option>";
+            }
+            echo "</select>";
+            echo "</div><hr>";
             // input submit
-                echo "<div>" .
+            echo "<div>" .
                 "<input type='submit' value='Ajouter' class='button button-primary'>" .
                 "</div>";
         }
     }
 }
-
-

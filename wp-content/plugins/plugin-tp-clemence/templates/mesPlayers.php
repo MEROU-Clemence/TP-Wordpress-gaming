@@ -60,9 +60,15 @@ class ClemPlayers
                 "</div>";
             // input compétition
             echo "<div>" .
-                "<label for='competition'>Compétition référence (numéro associé à la compétition)</label>" .
-                "<input type='number' name='competition' id='competition' class='widefat' required>" .
-                "</div>";
+                "<label for='competition'>Compétition choisie</label><br>" .
+                // requête pour obtenir la liste des compétitions
+                $compets = $db->findAllCompetitions();
+            echo "<select name='competition' id='competition'>";
+            foreach ($compets as $compet) {
+                echo "<option value='" . $compet->id . "'>" . $compet->label . "</option>";
+            }
+            echo "</select>";
+            echo "</div><hr>";
             // input submit
             echo "<div>" .
                 "<input type='submit' value='Ajouter' class='button button-primary'>" .

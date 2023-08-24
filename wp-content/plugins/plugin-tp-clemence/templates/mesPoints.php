@@ -32,26 +32,6 @@ class ClemPoints
             echo "<form method='post'>";
             $table->display();
             echo "</form>";
-        } else {
-            // on crée le formulaire d'ajout de client
-            echo "<form method='post'>";
-            // on va ajouter un input de type hidden pour envoyer "ok" lorsqu'on poste le formulaire
-            // cette valeur "ok" nous sert de flag pour faire du traitement dessus
-            echo "<input type='hidden' name='send' value='ok'>";
-            // input nom
-            echo "<div>" .
-                "<label for='labelpoints'>Résultat</label>" .
-                "<input type='text' name='labelpoints' id='labelpoints' class='widefat' required>" .
-                "</div>";
-            // input points
-            echo "<div>" .
-                "<label for='points'>Points</label>" .
-                "<input type='number' name='points' id='points' class='widefat' required>" .
-                "</div>";
-            // input submit
-            echo "<div>" .
-                "<input type='submit' value='Ajouter' class='button button-primary'>" .
-                "</div>";
         }
     }
 }

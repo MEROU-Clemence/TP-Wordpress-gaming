@@ -536,7 +536,7 @@ class Tp_List_Poules extends WP_List_Table
 
 
 
-// Liste des poules
+// Liste des matchs
 class Tp_List_Matchs extends WP_List_Table
 {
     // on va créer une variable en private qui va contenir l'instance de notre service
@@ -590,10 +590,10 @@ class Tp_List_Matchs extends WP_List_Table
     public function get_columns()
     {
         $columns = [
-            'player1' => 'Joueur 1',
-            'player2' => 'Joueur 2',
-            'date' => 'date match',
-            'is_pool' => 'poule'
+            'joueur1' => 'Joueur 1',
+            'joueur2' => 'Joueur 2',
+            'date' => 'Date du match',
+            'ispool' => 'Fait partie d\'une poule (1=oui 0=non)'
         ];
         return $columns;
     }
@@ -622,10 +622,10 @@ class Tp_List_Matchs extends WP_List_Table
     public function column_default($item, $column_name)
     {
         switch ($column_name) {
-            case 'player1';
-            case 'player2';
+            case 'joueur1';
+            case 'joueur2';
             case 'date';
-            case 'is_pool':
+            case 'ispool':
                 return $item->$column_name;
                 break;
             default:
@@ -637,10 +637,10 @@ class Tp_List_Matchs extends WP_List_Table
     public function get_sortable_columns()
     {
         $sortable = [
-            'player1' => ['player1', true],
-            'player2' => ['player2', true],
+            'joueur1' => ['joueur1', true],
+            'joueur2' => ['joueur2', true],
             'date' => ['date', true],
-            'is_pool' => ['pool', true]
+            'ispool' => ['ispool', true]
         ];
         return $sortable;
     }
@@ -850,10 +850,12 @@ class Tp_List_Scores extends WP_List_Table
     public function get_columns()
     {
         $columns = [
+            'nomresultat' => 'Résultat',
             'points' => 'Points',
-            'player' => 'Joueur',
-            'match' => 'Match',
-            'poule' => 'Poule'
+            'surnom' => 'Joueur',
+            'date' => 'Date du Match',
+            'group' => 'Poule/Groupe',
+            'competition' => 'Compétition'
         ];
         return $columns;
     }
@@ -882,10 +884,12 @@ class Tp_List_Scores extends WP_List_Table
     public function column_default($item, $column_name)
     {
         switch ($column_name) {
+            case 'nomresultat';
             case 'points';
-            case 'joueur';
-            case 'match';
-            case 'poule':
+            case 'surnom';
+            case 'date';
+            case 'group';
+            case 'competition':
                 return $item->$column_name;
                 break;
             default:
@@ -897,10 +901,12 @@ class Tp_List_Scores extends WP_List_Table
     public function get_sortable_columns()
     {
         $sortable = [
+            'nomresultat' => ['nomresultat', true],
             'points' => ['points', true],
-            'joueur' => ['joueur', true],
-            'match' => ['match', true],
-            'poule' => ['poule', true]
+            'surnom' => ['surnom', true],
+            'date' => ['date', true],
+            'group' => ['group', true],
+            'competition' => ['competition', true]
         ];
         return $sortable;
     }

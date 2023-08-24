@@ -81,7 +81,7 @@ class Tp_Wp_Clemence_Database_Service
             id INT AUTO_INCREMENT PRIMARY KEY,
             player1_id int(10) NOT NULL,
             player2_id int(10) NOT NULL,
-            date_match int(10) NOT NULL,
+            date_match VARCHAR(150) NOT NULL,
             is_pool BOOLEAN DEFAULT false,
             FOREIGN KEY (player1_id) REFERENCES {$wpdb->prefix}clem_player(id),
             FOREIGN KEY (player2_id) REFERENCES {$wpdb->prefix}clem_player(id))");
@@ -322,7 +322,7 @@ class Tp_Wp_Clemence_Database_Service
         global $wpdb;
         // dans une variable, on va récupérer les données du formulaire
         $data = [
-            "competition_id" => $_POST["nomcompete"],
+            "competition_id" => $_POST["nomcompet"],
             "group_id" => $_POST["label"],
             "player_id" => $_POST["surnom"]
         ];
@@ -343,8 +343,8 @@ class Tp_Wp_Clemence_Database_Service
             wp_die("La poule est complète");
         }
     }
-       
-    
+
+
 
     // fonction qui supprime un ou plusieurs poules
     public function delete_poule($ids) // $ids est un tableau d'id
@@ -369,10 +369,15 @@ class Tp_Wp_Clemence_Database_Service
     public function findAllMatchs()
     {
         global $wpdb;
-        $res = $wpdb->get_results("SELECT * FROM {$wpdb->prefix}clem_match");
+        $res = $wpdb->get_results("SELECT m.id, p.surnom AS joueur1, u.surnom AS joueur2, m.date_match AS date, m.is_pool AS ispool
+        FROM {$wpdb->prefix}clem_match AS m
+        INNER JOIN {$wpdb->prefix}clem_player AS p
+        ON m.player1_id = p.id
+        INNER JOIN {$wpdb->prefix}clem_player AS u
+        ON m.player2_id = u.id
+        ");
         return $res;
     }
-
 
     // function pour enregistrer un match
     public function save_match()
@@ -380,12 +385,12 @@ class Tp_Wp_Clemence_Database_Service
         global $wpdb;
         // dans une variable, on va récupérer les données du formulaire
         $data = [
-            "player1_id" => $_POST["player"],
-            "player2_id" => $_POST["player"],
-            "date_match" => $_POST["match"],
-            "is_pool" => $_POST["pool"]
+            "player1_id" => intval($_POST["joueur1"]),
+            "player2_id" => intval($_POST["joueur2"]),
+            "date_match" => $_POST["date"],
+            "is_pool" => intval($_POST["ispool"])
         ];
-        // on vérifie que la poule n'existe pas déjà
+        // on vérifie que le match n'existe pas déjà
         $row = $wpdb->get_row("SELECT * FROM {$wpdb->prefix}clem_match WHERE date_match = '" . $data["date_match"] . "'");
         if (is_null($row)) {
             // si le client n'existe pas, on l'insère dans la table
@@ -456,19 +461,41 @@ class Tp_Wp_Clemence_Database_Service
 
 
     //*********SCORES*********
-    // fonction qui va récupérer toutes les compétitions
+    // fonction qui va récupérer tous les scores
     public function findAllScores()
     {
         global $wpdb;
-        $res = $wpdb->get_results("SELECT * FROM {$wpdb->prefix}clem_scores");
+
+        $res = $wpdb->get_results("SELECT 
+        s.id, 
+        i.label AS nomresultat,
+        i.points, 
+        p.surnom AS surnom, 
+        m.date_match AS date, 
+        g.label AS groupe, 
+        c.label AS competition
+            FROM {$wpdb->prefix}clem_scores as s
+            INNER JOIN {$wpdb->prefix}clem_pool AS po
+            ON s.pool_id = po.id
+            INNER JOIN {$wpdb->prefix}clem_points AS i
+            ON s.points_id = i.id
+            INNER JOIN {$wpdb->prefix}clem_player AS p
+            ON s.player_id = p.id
+            INNER JOIN {$wpdb->prefix}clem_match AS m
+            ON s.match_id = m.id
+            INNER JOIN {$wpdb->prefix}clem_group AS g
+            ON po.group_id = g.id
+            INNER JOIN {$wpdb->prefix}clem_competition AS c
+            ON po.competition_id = c.id");
         return $res;
     }
 
 
-    // function pour enregistrer une compétition
+    // function pour enregistrer un score
     public function save_scores()
     {
         global $wpdb;
+
         // dans une variable, on va récupérer les données du formulaire
         $data = [
             "points_id" => $_POST["points"],
@@ -476,8 +503,17 @@ class Tp_Wp_Clemence_Database_Service
             "match_id" => $_POST["match"],
             "pool_id" => $_POST["pool"]
         ];
-        // on vérifie que la competition n'existe pas déjà
-        $wpdb->insert("SELECT * FROM {$wpdb->prefix}clem_scores, $data");
+        // Vérifiez si l'entrée existe déjà
+        $existing_score = $wpdb->get_row("SELECT * FROM {$wpdb->prefix}clem_scores WHERE match_id = '" . $data["match_id"] . "'");
+
+
+        if (is_null($existing_score)) {
+            // si le score n'existe pas déjà, on l'insère dans la table
+            $wpdb->insert("{$wpdb->prefix}clem_scores", $data);
+        } else {
+            // Message d'erreur si le score existe déjà
+            wp_die("Le score pour cette rencontre existe déjà.");
+        }
     }
 
     // fonction qui supprime un ou plusieurs compet

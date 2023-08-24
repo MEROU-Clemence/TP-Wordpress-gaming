@@ -123,7 +123,7 @@ class Tpclem
 
         // MES MATCHS
         add_menu_page(
-            "MATCHS",
+            "MATCHS GLOSSAIRE",
             "MATCHS",
             "manage_options",
             "gaming-matchs",
@@ -134,7 +134,7 @@ class Tpclem
 
         // MES POINTS
         add_menu_page(
-            "POINTS",
+            "POINTS INDICATEUR",
             "POINTS",
             "manage_options",
             "gaming-points",
@@ -145,7 +145,7 @@ class Tpclem
 
         // MES SCORES
         add_menu_page(
-            "SCORES",
+            "SCORES / RESULTATS",
             "SCORES",
             "manage_options",
             "gaming-scores",
@@ -194,8 +194,8 @@ class Tpclem
             array($groupe, "mesGroupes")
         );
 
-         // on va ajouter un sous-menu pour AJOUTER une POULE
-         add_submenu_page(
+        // on va ajouter un sous-menu pour AJOUTER une POULE
+        add_submenu_page(
             "gaming-poules",
             "S'AFFILIER A UNE POULE",
             "AJOUTER poule",
@@ -214,20 +214,11 @@ class Tpclem
             array($match, "mesMatchs")
         );
 
-        // on va ajouter un sous-menu pour AJOUTER des POINTS
-        add_submenu_page(
-            "gaming-points",
-            "AJOUTER DES POINTS",
-            "AJOUTER points",
-            "manage_options",
-            "gaming-points-add",
-            array($point, "mesPoints")
-        );
 
         // on va ajouter un sous-menu pour AJOUTER des Scores
         add_submenu_page(
             "gaming-scores",
-            "AJOUTER DES SCORES",
+            "AJOUTER UN SCORE",
             "AJOUTER scores",
             "manage_options",
             "gaming-scores-add",
