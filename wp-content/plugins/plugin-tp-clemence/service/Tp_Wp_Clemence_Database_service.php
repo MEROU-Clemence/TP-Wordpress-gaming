@@ -240,7 +240,20 @@ class Tp_Wp_Clemence_Database_Service
         $wpdb->query("DELETE FROM {$wpdb->prefix}clem_player WHERE id IN (" . implode(",", $ids) . ")");
     }
 
+    // fonction pour trouver tous les joueurs mais par rapport a une competition
+    public function findAllPlayersByCompetition($competition)
+    {
+        global $wpdb;
 
+        $res = $wpdb->get_results($wpdb->prepare(
+            "SELECT p.id, p.surnom
+        FROM {$wpdb->prefix}clem_player AS p
+        WHERE p.competition_id = %d",
+            $competition
+        ));
+
+        return $res;
+    }
 
 
 
@@ -326,7 +339,7 @@ class Tp_Wp_Clemence_Database_Service
             "group_id" => $_POST["label"],
             "player_id" => $_POST["surnom"]
         ];
-        
+
         // on vérifie que le joueur n'est pas déjà répertorié dans une compétition
         // puis on vérifie que la poule dans laquelle il veut s'inscrire n'est pas complète encore
         $row = $wpdb->get_row("SELECT * FROM {$wpdb->prefix}clem_pool WHERE player_id = '" . $data["player_id"] . "'");
