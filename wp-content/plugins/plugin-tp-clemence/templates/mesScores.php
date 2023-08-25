@@ -73,7 +73,7 @@ class ClemScores
             echo "</div><hr>";
             // input poule
             echo "<div>" .
-                "<label for='group'>Groupe de poule</label><br>" .
+                "<label for='pool'>Groupe de poule</label><br>" .
                 // requête pour obtenir la liste des dates de matchs
                 $groups = $db->findAllGroupes();
             echo "<select name='pool' id='pool'>";

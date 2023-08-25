@@ -20,8 +20,8 @@ class Tp_List_Competitions extends WP_List_Table
         // pour redéfinir le nom de la table (singulier et au pluriel)
         parent::__construct(
             array(
-                "singular" => __("Competition"),
-                "plural" => __("Competitions")
+                "singular" => __("competition"),
+                "plural" => __("competitions")
             )
         );
         // on instancie notre service
@@ -147,8 +147,8 @@ class Tp_List extends WP_List_Table
         // pour redéfinir le nom de la table (singulier et au pluriel)
         parent::__construct(
             array(
-                "singular" => __("Player"),
-                "plural" => __("Players")
+                "singular" => __("player"),
+                "plural" => __("players")
             )
         );
         // on instancie notre service
@@ -286,8 +286,8 @@ class Tp_List_Groupes extends WP_List_Table
         // pour redéfinir le nom de la table (singulier et au pluriel)
         parent::__construct(
             array(
-                "singular" => __("Groupe"),
-                "plural" => __("Groupes")
+                "singular" => __("groupe"),
+                "plural" => __("groupes")
             )
         );
         // on instancie notre service
@@ -413,8 +413,8 @@ class Tp_List_Poules extends WP_List_Table
         // pour redéfinir le nom de la table (singulier et au pluriel)
         parent::__construct(
             array(
-                "singular" => __("Poule"),
-                "plural" => __("Poules")
+                "singular" => __("poule"),
+                "plural" => __("poules")
             )
         );
         // on instancie notre service
@@ -547,8 +547,8 @@ class Tp_List_Matchs extends WP_List_Table
         // pour redéfinir le nom de la table (singulier et au pluriel)
         parent::__construct(
             array(
-                "singular" => __("Match"),
-                "plural" => __("Matchs")
+                "singular" => __("match"),
+                "plural" => __("matchs")
             )
         );
         // on instancie notre service
@@ -590,6 +590,7 @@ class Tp_List_Matchs extends WP_List_Table
     {
         $columns = [
             'cb' => '<input type="checkbox" />',
+            'id' => 'id',
             'joueur1' => 'Joueur 1',
             'joueur2' => 'Joueur 2',
             'date' => 'Date du match',
@@ -622,6 +623,7 @@ class Tp_List_Matchs extends WP_List_Table
     public function column_default($item, $column_name)
     {
         switch ($column_name) {
+            case 'id';
             case 'joueur1';
             case 'joueur2';
             case 'date';
@@ -637,6 +639,7 @@ class Tp_List_Matchs extends WP_List_Table
     public function get_sortable_columns()
     {
         $sortable = [
+            'id' => ['id', true],
             'joueur1' => ['joueur1', true],
             'joueur2' => ['joueur2', true],
             'date' => ['date', true],
@@ -681,8 +684,8 @@ class Tp_List_Points extends WP_List_Table
         // pour redéfinir le nom de la table (singulier et au pluriel)
         parent::__construct(
             array(
-                "singular" => __("Point"),
-                "plural" => __("Points")
+                "singular" => __("point"),
+                "plural" => __("points")
             )
         );
         // on instancie notre service
@@ -724,6 +727,7 @@ class Tp_List_Points extends WP_List_Table
     {
         $columns = [
             'cb' => '<input type="checkbox" />',
+            'id' => 'id',
             'label' => 'Résultat',
             'points' => 'Points'
         ];
@@ -754,6 +758,7 @@ class Tp_List_Points extends WP_List_Table
     public function column_default($item, $column_name)
     {
         switch ($column_name) {
+            case 'id';
             case 'label';
             case 'points':
                 return $item->$column_name;
@@ -767,6 +772,7 @@ class Tp_List_Points extends WP_List_Table
     public function get_sortable_columns()
     {
         $sortable = [
+            'id' => ['id', true],
             'label' => ['label', true],
             'points' => ['points', true]
         ];
@@ -809,8 +815,8 @@ class Tp_List_Scores extends WP_List_Table
         // pour redéfinir le nom de la table (singulier et au pluriel)
         parent::__construct(
             array(
-                "singular" => __("Score"),
-                "plural" => __("Scores")
+                "singular" => __("score"),
+                "plural" => __("scores")
             )
         );
         // on instancie notre service
@@ -852,11 +858,12 @@ class Tp_List_Scores extends WP_List_Table
     {
         $columns = [
             'cb' => '<input type="checkbox" />',
+            'id' => 'id',
             'nomresultat' => 'Résultat',
             'points' => 'Points',
             'surnom' => 'Joueur',
             'date' => 'Date du Match',
-            'group' => 'Poule/Groupe',
+            'label' => 'Poule/Groupe',
             'competition' => 'Compétition'
         ];
         return $columns;
@@ -886,11 +893,12 @@ class Tp_List_Scores extends WP_List_Table
     public function column_default($item, $column_name)
     {
         switch ($column_name) {
+            case 'id';
             case 'nomresultat';
             case 'points';
             case 'surnom';
             case 'date';
-            case 'group';
+            case 'label';
             case 'competition':
                 return $item->$column_name;
                 break;
@@ -903,11 +911,12 @@ class Tp_List_Scores extends WP_List_Table
     public function get_sortable_columns()
     {
         $sortable = [
+            'id' => ['id', true],
             'nomresultat' => ['nomresultat', true],
             'points' => ['points', true],
             'surnom' => ['surnom', true],
             'date' => ['date', true],
-            'group' => ['group', true],
+            'label' => ['label', true],
             'competition' => ['competition', true]
         ];
         return $sortable;

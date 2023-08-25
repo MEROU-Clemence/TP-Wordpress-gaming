@@ -241,6 +241,7 @@ class Tp_Wp_Clemence_Database_Service
     }
 
     // fonction pour trouver tous les joueurs mais par rapport a une competition
+    // TODO: faire marcher cette fonction dans mes joueurs
     public function findAllPlayersByCompetition($competition)
     {
         global $wpdb;
@@ -295,6 +296,7 @@ class Tp_Wp_Clemence_Database_Service
     }
 
     // fonction qui supprime un ou plusieurs groupes
+    // TODO: faire que cette function marche
     public function delete_groupe($ids) // $ids est un tableau d'id
     {
         global $wpdb;
@@ -413,19 +415,40 @@ class Tp_Wp_Clemence_Database_Service
             "date_match" => $_POST["date"],
             "is_pool" => intval($_POST["ispool"])
         ];
-        // on vérifie que le match n'existe pas déjà
-        $row = $wpdb->get_row("SELECT * FROM {$wpdb->prefix}clem_match WHERE date_match = '" . $data["date_match"] . "'");
-        if (is_null($row)) {
-            // si le client n'existe pas, on l'insère dans la table
-            // méthode insert: 1er paramètre: le nom de la table, 2ème paramètre: les données à insérer(array)
-            $wpdb->insert("{$wpdb->prefix}clem_match", $data);
+        // Vérifier si un match entre les deux joueurs a déjà eu lieu
+        $existingMatch = $wpdb->get_row(
+            $wpdb->prepare(
+                "SELECT * FROM {$wpdb->prefix}clem_match
+                WHERE (player1_id = %d AND player2_id = %d) OR (player1_id = %d AND player2_id = %d)",
+                $data["player1_id"], $data["player2_id"],
+                $data["player2_id"], $data["player1_id"]
+            )
+        );
+
+        // Vérifier si le match n'existe pas déjà par sa date
+        if (is_null($existingMatch)) {
+            $row = $wpdb->get_row(
+                $wpdb->prepare(
+                    "SELECT * FROM {$wpdb->prefix}clem_match WHERE date_match = %s",
+                    $data["date_match"]
+                )
+            );
+
+            if (is_null($row)) {
+                // Insérer le nouveau match
+                $wpdb->insert("{$wpdb->prefix}clem_match", $data);
+            } else {
+                // Message d'erreur si le match existe déjà par sa date
+                wp_die("Le match en date du {$data["date_match"]} a déjà eu lieu.");
+            }
         } else {
-            // Message d'erreur si existe déjà
-            wp_die("Le match {$data["date_match"]} a déjà eu lieu.");
+            // Message d'erreur si un match entre ces joueurs a déjà eu lieu
+            wp_die("Le match entre ces deux joueurs a déjà eu lieu.");
         }
     }
 
     // fonction qui supprime un ou plusieurs poules
+    // TODO: faire que cette function marche
     public function delete_match($ids) // $ids est un tableau d'id
     {
         global $wpdb;
@@ -443,7 +466,7 @@ class Tp_Wp_Clemence_Database_Service
 
 
     //*********POINTS*********
-    // fonction qui va récupérer toutes les compétitions
+    // fonction qui va récupérer tous les points
     public function findAllPoints()
     {
         global $wpdb;
@@ -452,7 +475,7 @@ class Tp_Wp_Clemence_Database_Service
     }
 
 
-    // function pour enregistrer une compétition
+    // function pour enregistrer des points
     public function save_points()
     {
         global $wpdb;
@@ -461,11 +484,12 @@ class Tp_Wp_Clemence_Database_Service
             "label" => $_POST["label"],
             "points" => $_POST["points"]
         ];
-        // on vérifie que la competition n'existe pas déjà
+        // on vérifie que les points n'existe pas déjà
         $wpdb->insert("SELECT * FROM {$wpdb->prefix}clem_points, $data");
     }
 
-    // fonction qui supprime un ou plusieurs compet
+    // fonction qui supprime des points
+    // TODO: faire que cette function marche
     public function delete_points($ids) // $ids est un tableau d'id
     {
         global $wpdb;
@@ -495,7 +519,7 @@ class Tp_Wp_Clemence_Database_Service
         i.points, 
         p.surnom AS surnom, 
         m.date_match AS date, 
-        g.label AS groupe, 
+        g.label AS label, 
         c.label AS competition
             FROM {$wpdb->prefix}clem_scores as s
             INNER JOIN {$wpdb->prefix}clem_pool AS po
@@ -526,18 +550,19 @@ class Tp_Wp_Clemence_Database_Service
             "match_id" => $_POST["match"],
             "pool_id" => $_POST["pool"]
         ];
+
         // Vérifiez si l'entrée existe déjà
-        $existing_score = $wpdb->get_row("SELECT * FROM {$wpdb->prefix}clem_scores WHERE match_id = '" . $data["match_id"] . "'");
+        $existing_scores = $wpdb->get_results("SELECT * FROM {$wpdb->prefix}clem_scores WHERE match_id = '" . $data["match_id"] . "'");
 
-
-        if (is_null($existing_score)) {
-            // si le score n'existe pas déjà, on l'insère dans la table
+        if (count($existing_scores) < 2) {
+            // si le nombre d'entrées est inférieur à 2, on peut insérer le score
             $wpdb->insert("{$wpdb->prefix}clem_scores", $data);
-        } else {
-            // Message d'erreur si le score existe déjà
-            wp_die("Le score pour cette rencontre existe déjà.");
+            } else {
+                // Message d'erreur si le score existe déjà
+                wp_die("Les scores pour cette rencontre ont déjà été rentrés pour les 2 joueurs en opposition.");
+            }
         }
-    }
+    
 
     // fonction qui supprime un ou plusieurs compet
     public function delete_scores($ids) // $ids est un tableau d'id
@@ -553,7 +578,7 @@ class Tp_Wp_Clemence_Database_Service
         $wpdb->query("DELETE FROM {$wpdb->prefix}clem_scores WHERE id IN (" . implode(",", $ids) . ")");
     }
 
-
+    // TODO: fonction pour rentrer des scores mais seulement dans des matchs qui se sont vraiment passés entre les deux jours choisis.
 
 
 

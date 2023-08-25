@@ -64,7 +64,7 @@ class ClemPoules
             echo "<div>" .
                 "<label for='surnom'>Ton pseudo</label><br>" .
                 // requête pour obtenir la liste des joueurs
-                $pseudos = $db->findAll(); // TODO: PlayersByCompetitionId
+                $pseudos = $db->findAll(); // TODO: PlayersByCompetitionId à intégrer
             echo "<select name='surnom' id='surnom'>";
             foreach ($pseudos as $pseudo) {
                 echo "<option value='" . $pseudo->id . "'>" . $pseudo->surnom . "</option>";
