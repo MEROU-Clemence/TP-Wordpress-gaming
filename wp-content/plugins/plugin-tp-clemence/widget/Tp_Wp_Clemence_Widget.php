@@ -7,105 +7,90 @@ class Tp_Wp_Clemence_Widget extends WP_Widget // on étend la classe WP_Widget
         // on déclare une variable avec les options du widget
         $widget_ops = array( // on ajoute des options au widget
             // ajout d'une classe css
-            "className" => "ern_random_photo",
+            "className" => "tp-wp-clemence",
             // ajout d'une description
-            "description" => __("Show the big rando of pictures !"), // on traduit le texte
+            "description" => __("Mes résultats des compétitions"), // on traduit le texte
             // pour éviter de rafraîchir la fenêtre du navigateur
             'customize_selective_refresh' => true
         );
         // on surcharge le constructeur de la classe parent
         parent::__construct(
             // on donne un nom au widget
-            'photos',
+            'resultats',
             // on donne un titre au widget
-            __("Random photo"),
+            __("Resultats"),
             // on lui donne des options
             $widget_ops
         );
     }
 
-    // création du formulaire pour le back office
+    // Méthode pour afficher le formulaire de configuration du widget
     public function form($instance)
     {
-        // création d'un tableau de valeurs par défaut
-        // wp_parse_args permet de fusionner les valeurs dans un tableau
-        $instance = wp_parse_args((array) $instance, [
-            "query" => "",
-            "nbr" => "",
-            "cle" => ""
-        ]);
-?>
-        <!-- Création de nos inputs -->
-        <div>
-            <label for="<?= $this->get_field_id('query') ?>">Mot de recherche</label>
-            <input type="text" name="<?= $this->get_field_name('query') ?>" id="<?= $this->get_field_id('query') ?>" value="<?= esc_attr($instance['query']) ?>">
-        </div>
-        <div>
-            <label for="<?= $this->get_field_id('nbr') ?>">Nombre de photos</label>
-            <input type="text" name="<?= $this->get_field_name('nbr') ?>" id="<?= $this->get_field_id('nbr') ?>" value="<?= esc_attr($instance['nbr']) ?>">
-        </div>
-        <div>
-            <label for="<?= $this->get_field_id('cle') ?>">Clé Unsplash</label>
-            <input type="text" name="<?= $this->get_field_name('cle') ?>" id="<?= $this->get_field_id('cle') ?>" value="<?= esc_attr($instance['cle']) ?>">
-        </div>
-<?php
+        // Récupérer les valeurs actuelles des options du widget (si disponibles)
+        $title = !empty($instance['title']) ? $instance['title'] : __('Résultats');
+ 
+        // Afficher le champ pour le titre du widget
+        ?>
+        <p>
+            <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Titre du Widget:'); ?></label>
+            <input class="widefat" type="text" id="<?php echo $this->get_field_id('title'); ?>"
+                   name="<?php echo $this->get_field_name('title'); ?>" value="<?php echo esc_attr($title); ?>"/>
+        </p>
+        <?php
     }
 
-    // création du formulaire de la fonction update pour modifier les valeurs du formulaire et générer d'autres images
-    public function update($new_instance, $old_instance)
-    {
-        $instance = $old_instance;
-        // sanitize_text_field permet de nettoyer les données
-        $instance['query'] = sanitize_text_field($new_instance['query']);
-        $instance['nbr'] = sanitize_text_field($new_instance['nbr']);
-        $instance['cle'] = sanitize_text_field($new_instance['cle']);
-
-        return $instance;
-    }
-
-    // création de la fonction widget pour afficher les images
+    // Méthode pour afficher le contenu du widget
     public function widget($args, $instance)
     {
-        // on definit le titre
-        $title = "Photos";
-        // nombre de photos minimum
-        ($instance['nbr'] != 0) ? $nbr = $instance['nbr'] : $nbr = 1;
-        // construction de l'url de l'API unsplash
-        $url = "https://api.unsplash.com/search/photos?query=" . $instance['query'] . "&per_page=" . $nbr;
-
-        // configuration des headers pour autoriser la consommation de l'API
-        $argCle = [
-            'headers' => [
-                'Authorization' => 'Client-ID ' . $instance['cle']
-            ]
-        ];
-
-        // on fait l'appel à l'API grace à wp_remote_get
-        $request = wp_remote_get($url, $argCle);
-        // gestion d'erreur de retour
-        if (is_wp_error($request)) {
-            return false;
-        }
-        // si ok, on récupère le body de la réponse sous forme de json
-        $body = wp_remote_retrieve_body($request);
-        // on décode le json
-        $data = json_decode($body, true);
-
-        // construction du rendu HTML pour afficher les images
-
+        // Titre du widget
         echo $args['before_widget'];
-        // on affiche le titre
-        echo $args['before_title'] . $title . $args['after_title'];
-        echo "<div class='photo'>";
-        if (!empty($data)) {
-            for ($i = 0; $i < $nbr; $i++) {
-                echo "<p>" . $data['results'][$i]['id'] . "</p>";
-                echo "<img src='" . $data['results'][$i]['urls']['thumb'] . "' alt'" . $data['results'][$i]['description'] . "'/>";
+        echo $args['before_title'] . __('Résultats') . $args['after_title'];
+
+        // Afficher les scores
+        global $wpdb;
+        $scores = $wpdb->get_results("SELECT 
+        s.id, 
+        i.label AS nomresultat,
+        i.points, 
+        p.surnom AS surnom, 
+        m.date_match AS date, 
+        g.label AS label, 
+        c.label AS competition
+            FROM {$wpdb->prefix}clem_scores as s
+            INNER JOIN {$wpdb->prefix}clem_pool AS po
+            ON s.pool_id = po.id
+            INNER JOIN {$wpdb->prefix}clem_points AS i
+            ON s.points_id = i.id
+            INNER JOIN {$wpdb->prefix}clem_player AS p
+            ON s.player_id = p.id
+            INNER JOIN {$wpdb->prefix}clem_match AS m
+            ON s.match_id = m.id
+            INNER JOIN {$wpdb->prefix}clem_group AS g
+            ON po.group_id = g.id
+            INNER JOIN {$wpdb->prefix}clem_competition AS c
+            ON po.competition_id = c.id");
+        
+        if (!empty($scores)) {
+            echo '<table class="widget-results-table">';
+            echo '<tr><th>Joueur</th><th>Compétition</th><th>Poule</th><th>Match</th><th>Points</th></tr>';
+            
+            foreach ($scores as $score) {
+                echo '<tr>';
+                echo '<td>' . $score->surnom . '</td>';
+                echo '<td>' . $score->competition . '</td>';
+                echo '<td>' . $score->label . '</td>';
+                echo '<td>' . $score->date . '</td>';
+                echo '<td>' . $score->points . '</td>';
+                echo '</tr>';
             }
+            
+            echo '</table>';
+        } else {
+            echo 'Aucun score trouvé.';
         }
-        echo "</div>";
 
         echo $args['after_widget'];
-        return '';
     }
 }
+

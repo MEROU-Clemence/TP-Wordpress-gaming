@@ -622,7 +622,8 @@ ul.custom-menu li:hover>ul {
     margin: 5px;
 }
 
-/* SIDEBAR du WIDGET dedans */
+
+/* SIDEBAR et WIDGET dedans */
 .blog-sidebar {
     background-color: #B9B9B9;
 }
@@ -630,6 +631,36 @@ ul.custom-menu li:hover>ul {
 .blog-sidebar a {
     color: #2F2F2F;
 }
+
+.sidebar-module h5 {
+    color:#860202;
+    display: flex;
+    justify-content: center;
+}
+
+.new-widget-area .widget-results-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid #860202;
+    margin-top: 25px;
+}
+
+.new-widget-area .widget-results-table th, .widget-results-table td {
+    border: 2px solid #860202;
+    font-size: 14px;
+    padding: 8px;
+    text-align: left;
+}
+
+.new-widget-area .widget-results-table th {
+    background-color:#FEFEFE;
+    font-size: 16px;
+    text-align: center;
+}
+
+
+
+
 
 /* FOOTER */
 /* Première partie */
@@ -745,6 +776,7 @@ ul.custom-menu li:hover>ul {
         /* pour éviter le décalage du sous-menu */
     }
 }
+
 
 
 /* STYLE DE MON SINGLE ARTICLE */

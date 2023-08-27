@@ -1,0 +1,10 @@
+2023-08-27T09:36:47+00:00 CRITICAL Uncaught Error: Call to undefined method Tp_Wp_Clemence_Widget::findAll() in /app/wp-content/plugins/plugin-tp-clemence/widget/Tp_Wp_Clemence_Widget.php:36
+Stack trace:
+#0 /app/wp-includes/widgets.php(1261): Tp_Wp_Clemence_Widget->widget(Array, Array)
+#1 /app/wp-includes/rest-api/endpoints/class-wp-rest-widget-types-controller.php(552): the_widget('Tp_Wp_Clemence_...', Array)
+#2 /app/wp-includes/rest-api/endpoints/class-wp-rest-widget-types-controller.php(522): WP_REST_Widget_Types_Controller->get_widget_preview('Tp_Wp_Clemence_...', Array)
+#3 /app/wp-includes/rest-api/class-wp-rest-server.php(1188): WP_REST_Widget_Types_Controller->encode_form_data(Object(WP_REST_Request))
+#4 /app/wp-includes/rest-api/class-wp-rest-server.php(1035): WP_REST_Server->respond_to_request(Object(WP_REST_Request), '/wp/v2/widget-t...', Array, NULL)
+#5 /app/wp-includes/rest-api/class-wp-rest-server.php(447): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#6 /app/wp-includes/rest-api.php(418): WP_REST_Server->serve_request('/wp/v in /app/wp-content/plugins/plugin-tp-clemence/widget/Tp_Wp_Clemence_Widget.php on line 36
+

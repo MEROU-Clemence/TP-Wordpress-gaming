@@ -561,7 +561,7 @@ class Tp_Wp_Clemence_Database_Service
                 // Message d'erreur si le score existe déjà
                 wp_die("Les scores pour cette rencontre ont déjà été rentrés pour les 2 joueurs en opposition.");
             }
-        }
+    }
     
 
     // fonction qui supprime un ou plusieurs compet
